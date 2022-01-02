@@ -296,4 +296,120 @@ Day 2 of #100DaysOfCode
 
 - String in JavaScript is immutable, its means that they cannot be altered once created, the only way to change by assign new strings, but cannot just one character for the value of those variable.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb3e461e-cc07-48c9-855c-771f1b4d93d4/Untitled.png)
+
+Day 3 of #100DaysOfCode 20:00-22:00
+
+- In order to target specific sequence character in a string, we could mentioned index sequence in a bracket `myStr[2]`, and as well to identify last character in a string, we could use `.length -1` , and also works if we’d like to Find the Nth-to-Last Character in a String
+    
+    ```jsx
+    const lastName = "Lovelace";
+    
+    // identify last character in a string
+    const lastLetterOfLastName = lastName[lastName.length-1];
+    console.log(lastLetterOfLastName); // e
+    
+    // Find the Nth-to-Last Character in a String
+    const secondToLastLetterOfLastName = lastName[lastName.length - 2];
+    console.log(secondToLastLetterOfLastName); // c
+    ```
+    
+
+- JS Array `[]` also can store values, the value might vary based on our needs, we declare the value inside bracket with comma to separate each value. And nested arrays also works inside an array, incase we’d like to grouping several values
+    
+    ```jsx
+    const myArray = ["Fish", 7];
+    console.log(myArray); // [Fish, 7]
+    
+    // nested array
+    const myArray = [["Fish", 7], ["Fish2", 8]];
+    console.log(myArray); // ["Fish", 7], ["Fish2", 8]
+    ```
+    
+- To access Array data, we can use indexes, as similar to strings, array index use zero-based indexing method.
+    
+    Arrays value are mutable, so it highly possible to changes and assign to new value, unlike strings.
+    
+    With multidimensional arrays, accessing index also has similar approach but with following next pointed index as referring next level entries inside.
+    
+    ```jsx
+    const myArray = [50, 60, 70];
+    const myData = myArray[0];
+    console.log(myData); // 50
+    
+    // Modify array value
+    const myArray = [18, 64, 99];
+    myArray[0] = 45;
+    console.log(myArray); //[45, 64, 99]
+    
+    // multi-dimensional array
+    const myArray = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [[10, 11, 12], 13, 14],
+    ];
+    const myData = myArray[2][1];
+    console.log(myData); // 8
+    ```
+    
+- Manipulating arrays
+    
+    `.push()` often use to append data to the end of an array, means `.push()` function will add new value inside the arrays.
+    
+    if we’d like to dismiss end of array’s value, using `.pop()` function will removes the last element from an array and return those elements
+    
+    `.shift()` function was the opposite of `.pop()` function, it would removes our first element in arrays
+    
+    When it comes to adding new value in the first element of an array, `.unshift()` function will add them as the opposite `.push()`
+    
+    ```jsx
+    // .push()
+    const myArray = [["John", 23], ["cat", 2]];
+    myArray.push(["dog", 3]);
+    console.log(myArray); //[ [ 'John', 23 ], [ 'cat', 2 ], [ 'dog', 3 ] ]
+    
+    // .pop()
+    const myArray = [["John", 23], ["cat", 2]];
+    const removedFromMyArray = myArray.pop();
+    console.log(removedFromMyArray); //[ 'cat', 2 ]
+    console.log(myArray); //[ [ 'John', 23 ] ]
+    
+    // .shift()
+    const myArray = [["John", 23], ["dog", 3]];
+    const removedFromMyArray = myArray.shift();
+    console.log(myArray); // [ 'dog', 3 ]
+    
+    // .unshift()
+    const myArray = [["John", 23], ["dog", 3]];
+    myArray.shift();
+    myArray.unshift(["Paul", 35]);
+    console.log(myArray); // [ [ 'Paul', 35 ], [ 'dog', 3 ] ]
+    ```
+    
+- Functions in JavaScript are reusable, and it will be print the result every time those functions being called in dev console.
+    
+    Every functions use parameters to passing a values, parameters are variable that act as placeholders for the values that are to be input to a function when it is called
+    
+    ```jsx
+    function reusableFunction() {
+      console.log("Hi World");
+    }
+    reusableFunction(); // Hi World
+    
+    // passing values with arguments
+    function functionWithArgs(a,b) {
+      console.log(a+b);
+    }
+    functionWithArgs(7,9); //16
+    functionWithArgs(1,2); //3
+    ```
+    
+    we also can return value from a function with `return`
+    
+    ```jsx
+    function timesFive(n) {
+      return n * 5;
+    }
+    const answer = timesFive(5);
+    console.log(answer); //25
+    ```
