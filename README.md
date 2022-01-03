@@ -413,3 +413,66 @@ Day 3 of #100DaysOfCode 20:00-22:00
     const answer = timesFive(5);
     console.log(answer); //25
     ```
+    
+    
+    Day 4 of #100DaysOfCode #FCC
+
+- Global Scope & Function
+    
+    Scope in JS means visibility or access ranges that variables had once it declared. If we didn’t use `let` or `const` at the outside of function, then the variables became global scope: which has override consequence if we use similar variables in other place.
+    
+    ```jsx
+    const myGlobal = 10;
+    function fun1() {
+      // Assign 5 to oopsGlobal Here
+       oopsGlobal = 5;
+    }
+    function fun2() {
+      var output = "";
+      if (typeof myGlobal != "undefined") {
+        output += "myGlobal: " + myGlobal;
+      }
+      if (typeof oopsGlobal != "undefined") {
+        output += " oopsGlobal: " + oopsGlobal;
+      }
+      console.log(output); // myGlobal: 10 oopsGlobal: 5
+    }
+    
+    ```
+    
+- Local Scope & Function
+    
+    Local scope means any variables that declare within a function, and this variable cannot be access from outside of those function
+    
+    ```jsx
+    function myLocalScope() {
+      // Only change code below this line
+      const myVar = "Apis";
+    
+      console.log('inside myLocalScope', myVar); // inside myLocalScope Apis
+    }
+    myLocalScope(); // ReferenceError: Can't find variable: myVar
+    ```
+    
+    If the similar variable name was declared in local and global scope, it still works well & highly possible, and they will return the assigned value each of them.
+    
+    ```jsx
+    const outerWear = "T-Shirt";
+    
+    function myOutfit() {
+      const outerWear = "sweater";
+      return outerWear;
+    }
+    
+    myOutfit(); // sweater
+    ```
+    
+- Function returning undefined value
+    
+    Normally function will proceed inner code that assigned to them, but it would returning `undefined` of there is no `return` statement inside the function
+    
+- Queue is an abstract Data Structure where items are kept in order, for any new item will be add at the back of the order, and old item will taken off from the front queue
+    
+    ```jsx
+    
+    ```
