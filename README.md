@@ -476,3 +476,326 @@ Day 3 of #100DaysOfCode 20:00-22:00
     ```jsx
     
     ```
+    
+    ##Day 5 of #100DaysOfCode #FCC
+
+- Boolean Values
+    
+    Boolean has two values, it was `true` and `false`, without a string when to write them in JS
+    
+- If Statement
+    
+    If will be used to create a decision when the function return `true` then logic inside curly braces will be executed, and it will not runs when hit `false`
+    
+    ```jsx
+    function trueOrFalse(wasThatTrue) {
+    if(wasThatTrue) {
+      return "Yes, that was true";
+    } return "No, that was false";
+    }
+    ```
+    
+- Comparison Operators
+    
+    When we’d like to compare the equality between two values, we could use `==` which wud return boolean ( true or false). 
+    
+    ```jsx
+    function testEqual(val) {
+      if (val == 12) {  
+        return "Equal";
+      }
+      return "Not Equal";
+    }
+    testEqual(10); // Not Equal
+    ```
+    
+    Unlike the equality operator, Strict Equality ( `===` ) will not perform any type of similarity conversion, the comparing value should be has share similar type or value.
+    
+    ```jsx
+    function testStrict(val) {
+      if (val === 7) {
+        return "Equal";
+      }
+      return "Not Equal";
+    }
+    testStrict(10); // Not Equal
+    ```
+    
+    Inequality Operator ( `≠` → `!`(no space)`=` ) is the opposite of `==` , which wud be return `false`, 
+    
+    ```jsx
+    function testNotEqual(val) {
+      if ( val != 99) { 
+        return "Not Equal";
+      }
+      return "Equal";
+    }
+    testNotEqual(10);
+    ```
+    
+    And Strict Equality also has the opposite comparison operator, that was Strict Inequality (`! ==`), which means strict not equal and return `false`, 
+    
+    ```jsx
+    function testStrictNotEqual(val) {
+      if (val !== 17) {  
+        return "Not Equal";
+      }
+      return "Equal";
+    }
+    testStrictNotEqual(10);
+    ```
+    
+    Greater Than Operator (`>`) also works like equality operator, it will be convert data types of value when comparing, and will return `true` when number on left side is greater than right side
+    
+    ```jsx
+    function testGreaterThan(val) {
+      if (val > 100 ) {  
+        return "Over 100";
+      }
+      if (val > 10) {  
+        return "Over 10";
+      }
+      return "10 or Under";
+    }
+    testGreaterThan(10);
+    ```
+    
+    `≥`  (Greater Than Or Equal To) was used to compares two numbers, and it works like the `>` operator, but including the left number as baseline comparison
+    
+    ```jsx
+    function testGreaterOrEqual(val) {
+      if (val >= 20 ) {   
+        return "20 or Over";
+      }
+      if (val >= 10 ) {   
+        return "10 or Over";
+      }
+      return "Less than 10";
+    }
+    testGreaterOrEqual(10);
+    ```
+    
+    Less Than Operator (`<`), works the opposite way of Greater Than Operator.
+    
+    ```jsx
+    function testLessThan(val) {
+      if (val < 25) { 
+        return "Under 25";
+      }
+      if (val < 55 ) {   
+        return "Under 55";
+      }
+      return "55 or Over";
+    }
+    testLessThan(10);
+    ```
+    
+    Less Than or Equal To Operator ( `≤`), works the opposite way of `≥`
+    
+    ```jsx
+    function testLessOrEqual(val) {
+      if (val <= 12 ) {  
+        return "Smaller Than or Equal to 12";
+      }
+      if (val <= 24 ) {  
+        return "Smaller Than or Equal to 24";
+      }
+      return "More Than 24";
+    }
+    testLessOrEqual(10);
+    ```
+    
+    Comparison with Logical And Operator (`&&`), will return `true` if the *operands* to the left and right of it are true
+    
+    ```jsx
+    function testLogicalAnd(val) {
+      if (val <= 50 && val >= 25) {
+          return "Yes";
+      }
+      return "No";
+    }
+    testLogicalAnd(10);
+    ```
+    
+    Logical Or Operator (`||`), will return `true` if the *operands* to the left and right of it are true, otherwise `false`
+    
+    ```jsx
+    function testLogicalOr(val) {
+      if (val < 10 || val > 20) {
+        return "Outside";
+      } 
+      return "Inside";
+    }
+    testLogicalOr(15); // Inside
+    ```
+    
+
+- Else & Switch Statements
+    
+    Following block of code will execute when the if statement is true, but if not, the alternate one (after the first code statement) will execute.
+    
+    ```jsx
+    function testElse(val) {
+      let result = "";
+      if (val > 5) {
+        result = "Bigger than 5";
+      } else {
+        result = "5 or Smaller";
+        }
+      return result;
+      
+    }
+    testElse(4);
+    ```
+    
+    multiple condition if statements also known as `else if` statements
+    
+    ```jsx
+    function testElseIf(val) {
+      if (val > 10) {
+        return "Greater than 10";
+      } else if (val < 5) {
+        return "Smaller than 5";
+      } else {
+      return "Between 5 and 10";
+      }
+    }
+    testElseIf(7);
+    ```
+    
+    both `if` and `else if` statement will apply sequence order from top to bottom, so we had to carefully craft them
+    
+    ```jsx
+    function orderMyLogic(val) {
+      if (val < 5) {
+        return "Less than 5";
+      } else if 
+        (val < 10) {
+        return "Less than 10";
+      } else {
+        return "Greater than or equal to 10";
+      }
+    }
+    
+    orderMyLogic(7);
+    ```
+    
+    `switch` statements : A `switch` statement tests a value and can have many *case* statements which define various possible values. Statements are executed from the first matched `case` value until a `break` is encountered.
+    
+    ```jsx
+    function caseInSwitch(val) {
+      let answer = "";
+        switch(val) {
+        case 1:
+          answer = "alpha";
+          break;
+        case 2:
+          answer = "beta";
+          break;
+        case 3:
+          answer = "gamma";
+          break;
+        case 4:
+          answer = "delta";
+          break;}
+      return answer;
+    }
+    
+    caseInSwitch(1);
+    ```
+    
+    We also can set default switch statement as final statement if none of case would match
+    
+    ```jsx
+    function switchOfStuff(val) {
+      let answer = "";
+     switch(val) {
+       case "a":
+        answer = "apple";
+        break;
+      case "b":
+        answer = "bird";
+        break;
+      case "c":
+        answer = "cat";
+        break;
+      default:
+        answer = "stuff";
+        break
+     }
+      return answer;
+    }
+    
+    switchOfStuff(1);
+    ```
+    
+    switch statement with multiple inputs with the same output also can perform in group like this one
+    
+    ```jsx
+    function sequentialSizes(val) {
+      let answer = "";
+      switch(val) {
+        case 1:
+        case 2:
+        case 3:
+          answer = "Low";
+          break;
+        case 4:
+        case 5:
+        case 6:
+          answer = "Mid";
+          break;
+        case 7:
+        case 8:
+        case 9:
+          answer = "High";
+          break;
+      }
+      return answer;
+    }
+    
+    sequentialSizes(1);
+    
+    //---------
+    // If you have many options to choose from, 
+    // a switch statement can be easier to write than many chained 
+    // if/else if statements. The following:
+    
+    function chainToSwitch(val) {
+      let answer = "";
+      // Only change code below this line
+    if (val === 1) {
+      answer = "a";
+    
+    // into
+    switch(val) {
+      case 1:
+        answer = "a";
+        break;
+    
+    // ------------
+    
+    // sample
+    switch(val){
+      case "bob":
+        answer = "Marley";
+        break;
+      case 42:
+        answer = "The Answer";
+        break;
+      case 1:
+        answer = "There is no #1";
+        break;
+      case 99:
+        answer = "Missed me by this much!";
+        break;
+      case 7:
+        answer = "Ate Nine";
+        break;
+    }
+      return answer;
+    }
+    
+    ```
+    
+ 
