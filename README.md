@@ -797,5 +797,145 @@ Day 3 of #100DaysOfCode 20:00-22:00
     }
     
     ```
+    Day 6 of #100DaysOfCode
+
+- `RegEx`  is AN object is used for matching text with a pattern.
     
+    [RegExp - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+    
+    ```jsx
+    let count = 0;
+    
+    function cc(card) {
+      var regex = /[JQKA]/;
+      if (card > 1 && card < 7) {
+        count++;
+      } else if (card === 10 || regex.test(card)) {
+        count--;
+      }
+      if (count > 0) return count + " Bet";
+      return count + " Hold";
+    }
+    cc(2); cc(3); cc(7); cc('K'); cc('A');
+    ```
+    
+- JavaScript Object
+    
+    In most cases Object are similar to an arrays, to access and modify object data, we can use `properties` , Object being used to store data in a structured way, and can represent real world objects.
+    
+    ```jsx
+    const myDog = {
+      "name": "puppy",
+      "legs": 4,
+      "tails": 1,
+      "friends": ["cats", "lion", "tiger"],
+    };
+    ```
+    
+    to access object properties, we can use Dot Notation ( `.` ), and bracket notation `[]`. Dot Notation are used when we know the name of the properties.
+    
+    ```jsx
+    const testObj = {
+      "hat": "ballcap",
+      "shirt": "jersey",
+      "shoes": "cleats"
+    };
+    const hatValue = testObj.hat;  // ballcap
+    const shirtValue = testObj.shirt; // jersey
+    
+    // using Bracket Notation
+    const testObj = {
+      "an entree": "hamburger",
+      "my side": "veggies",
+      "the drink": "water"
+    };
+    const entreeValue = testObj['an entree'];   
+    const drinkValue = testObj['the drink'];   
+    
+    // another exercise
+    const testObj = {
+      12: "Namath",
+      16: "Montana",
+      19: "Unitas"
+    };
+    const playerNumber =  16 
+    const player = testObj[playerNumber]; // Montana
+    ```
+    
+    Object properties also can be updated, we can use either dot or bracket notation to update.
+    
+    ```jsx
+    const myDog = {
+      "name": "Coder",
+      "legs": 4,
+      "tails": 1,
+      "friends": ["freeCodeCamp Campers"]
+    };
+    myDog.name = "Happy Coder";
+    ```
+    
+    To add new properties to JavaScript Object, as the similar way to modify the properties itself:
+    
+    ```jsx
+    const myDog = {
+      "name": "Happy Coder",
+      "legs": 4,
+      "tails": 1,
+      "friends": ["freeCodeCamp Campers"]
+    };
+    myDog.bark = "woof";
+    console.log(myDog);
+    
+    /* { name: 'Happy Coder',
+      legs: 4,
+      tails: 1,
+      friends: [ 'freeCodeCamp Campers' ],
+      bark: 'woof' } */
+    ```
+    
+    When we’d like to delete properties from JS Object, simply use `delete` properties like this:
+    
+    ```jsx
+    const myDog = {
+      "name": "Happy Coder",
+      "legs": 4,
+      "tails": 1,
+      "friends": ["freeCodeCamp Campers"],
+      "bark": "woof"
+    };
+    delete myDog.tails;
+    console.log(myDog);
+    ```
+    
+    Using Objects for Lookups.
+    
+    ```jsx
+    function phoneticLookup(val) {
+      let result= "";
+      const lookup = {
+        "alpha": "Adams",
+        "bravo": "Boston",
+        "charlie": "Chicago",
+        "delta": "Denver",
+        "echo": "Easy",
+        "foxtrot": "Frank",
+      };
+      result = lookup[val];
+      return result;
+    }
+    
+    phoneticLookup("charlie");
+    ```
+    
+    `.hasOwnProperty(propname)`  is method to determine if that object has the given property name.  `.hasOwnProperty()`returns `true` or `false` if the property is found or not.
+    
+    ```jsx
+    function checkObj(obj, checkProp) {
+      if (obj.hasOwnProperty(checkProp)) {
+        return obj[checkProp];
+      } else {
+        return "Not Found";
+      }
+    }
+    ```
  
