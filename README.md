@@ -938,4 +938,150 @@ Day 3 of #100DaysOfCode 20:00-22:00
       }
     }
     ```
- 
+ Day 7 of #100DaysOfCode
+
+- Manipulating complex object
+    
+    a flexible Data Structure are commonly used in JavaScript, this flexible data can perform combinations of *strings, numbers, booleans, arrays, functions,* and *objects.*
+    
+    this approach also called JavaScript Object Notation or JSON: is a related data interchanges format used to store data:
+    
+    ```jsx
+    const myMusic = [ 
+    {
+      "artist": "Daft Punk",
+      "title": "Homework",
+      "release_year": 1997,
+      "formats": [ 
+        "CD",
+        "Cassette",
+        "LP"
+      ],
+      "gold": true
+    	}
+    ]
+    ```
+    
+
+- Accessing nested objects
+    
+    To access the sub-properties of an objects, by chaining together the dot or bracket notation.
+    
+    ```jsx
+    const myStorage = {
+      "car": {
+        "inside": {
+          "glove box": "maps",
+          "passenger seat": "crumbs"
+         },
+        "outside": {
+          "trunk": "jack"
+        }
+      }
+    };
+    
+    const gloveBoxContents = myStorage.car.inside["glove box"];
+    ```
+    
+- Accessing nested arrays
+    
+    To access nested arrays is similar way on accessing nested objects, array bracket notation can be chained to access nested arrays.
+    
+    ```jsx
+    const myPlants = [
+      {
+        type: "flowers",
+        list: [
+          "rose",
+          "tulip",
+          "dandelion"
+        ]
+      },
+      {
+        type: "trees",
+        list: [
+          "fir",
+          "pine",
+          "birch"
+        ]
+      }
+    ];
+    const secondTree = myPlants[1].list[1]; // pine
+    ```
+    
+
+- JavaScript While Loops
+    
+    while loops will runs when a specific condition is true and stops once that conditions is no longer true
+    
+    ```jsx
+    // Setup
+    const myArray = [];
+    let i = 5;
+    while (i >= 0) {
+      myArray.push(i);
+      i--;
+    }
+    console.log(myArray); // [5,4,3,2,1,0]
+    ```
+    
+- JavaScript For Loops
+    
+    for loop has declared with three optional expressions separated by semicolons:
+    
+    `for (a; b; c)`, where `a` is the initialization statement, `b` is the condition statement, and `c` is the final expression.
+    
+    ```jsx
+    const myArray = [];
+    for (let i = 1; i < 6; i++) {
+      myArray.push(i);
+    }
+    console.log(myArray); //[ 1, 2, 3, 4, 5 ]
+    ```
+    
+    How if we’d like to iterate Odd Numbers with For Loop: For loops don't have to iterate one at a time. By changing our `final-expression`, we can count by even numbers.
+    
+    ```jsx
+    const myArray = [];
+    for (let i = 1; i < 10; i += 2 ) {
+      myArray.push(i);
+    }
+    console.log(myArray)// [ 1, 3, 5, 7, 9 ]
+    ```
+    
+    Counting backwards also can perform using For Loop, In order to decrement by two each iteration, we'll need to change our initialization, condition, and final expression.
+    
+    ```jsx
+    const myArray = [];
+    for (let i = 9; i > 0; i -= 2) {
+      myArray.push(i);
+    }
+    console.log(myArray); // [ 9, 7, 5, 3, 1 ]
+    ```
+    
+    For Loop also can be used for iterate through an array, by running the loop as long the `i` is equal to `length`.
+    
+    ```jsx
+    const myArr = [2, 3, 4, 5, 6];
+    let total = 0;
+    for (let i= 0 ; i < myArr.length; i++  ) {
+      total += myArr[i];
+    }
+    console.log(total); // 20
+    ```
+    
+- JavaScript Do...While Loops
+    
+    It is called a `do...while` loop because it will first `do` one pass of the code inside the loop no matter what, and then continue to run the loop `while` the specified condition evaluates to `true`.
+    
+    what makes the `do...while` different from other loops is how it behaves when the condition fails on the first check. Essentially, a `do...while` loop ensures that the code inside the loop will run at least once.
+    
+    ```jsx
+    const myArray = [];
+    let i = 10;
+     do {
+      myArray.push(i);
+      i++;
+    } while (i < 5);
+    ```
+    
