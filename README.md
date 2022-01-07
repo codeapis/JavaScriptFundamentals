@@ -1084,4 +1084,8 @@ Day 3 of #100DaysOfCode 20:00-22:00
       i++;
     } while (i < 5);
     ```
+  
+ Day 8 of #100DaysOfCode
+- Replacing Loops with Recursion is the concept can be expressed in terms of itself.
     
+
