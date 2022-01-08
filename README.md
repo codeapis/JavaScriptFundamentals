@@ -1086,6 +1086,176 @@ Day 3 of #100DaysOfCode 20:00-22:00
     ```
   
  Day 8 of #100DaysOfCode
-- Replacing Loops with Recursion is the concept can be expressed in terms of itself.
+- - Replacing Loops with Recursion is the concept can be expressed in terms of itself.
+    
+    ```jsx
+    function sum(arr, n) {
+      if(n <= 0) {
+        return 0;
+      } else {
+        return sum(arr, n-1) + arr[n-1];
+      }
+    }
+      console.log(sum([2,3,4], 1)) // 2
+    ```
+    
+    ```jsx
+    // exercise profile lookup
+    const contacts = [
+      {
+        firstName: "Akira",
+        lastName: "Laine",
+        number: "0543236543",
+        likes: ["Pizza", "Coding", "Brownie Points"],
+      },
+      {
+        firstName: "Harry",
+        lastName: "Potter",
+        number: "0994372684",
+        likes: ["Hogwarts", "Magic", "Hagrid"],
+      },
+      {
+        firstName: "Sherlock",
+        lastName: "Holmes",
+        number: "0487345643",
+        likes: ["Intriguing Cases", "Violin"],
+      },
+      {
+        firstName: "Kristian",
+        lastName: "Vos",
+        number: "unknown",
+        likes: ["JavaScript", "Gaming", "Foxes"],
+      },
+    ];
+    // answer
+    function lookUpProfile(name, prop) {
+      for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].firstName === name) {
+          if(contacts[i].hasOwnProperty(prop)) {
+            return contacts[i][prop]
+          } else {
+            return "No such property";
+          }
+        }
+      }
+      return "No such contact";
+    }
+    
+    lookUpProfile("Akira", "likes");
+    
+    // explanation
+    // The for loop runs, starting the first object in the contacts list
+    // If the firstName parameter passed into the function matches the value of the "firstName" key in the first object, the if statement passes.
+    // Then, we use .hasOwnPropertiy() to check with a prop as an argment, if it's was trus, the value of prop will returned
+    // if statement of finding prop failes, "No such property" is returned
+    // if the first if statements fails, for loop continues on the next object of contact list
+    // If the firstName parameter isn’t matched by the final contacts object, the for loop exits and No such contact is returned.
+    ```
+    
+
+- Random Fractions
+    
+    Random fractions in Javascript using `Math.random()` that generates a random decimal number between 0 and 1.
+    
+    ```jsx
+    function randomFraction() {
+      return Math.random();
+    }
+    console.log(randomFraction(2));// 0.3366139865105834
+    ```
+    
+    we can also using random fraction to whole numbers, with helps multiply the `Math.random()` to certain numbers (eq. 20), then use `Math.floor()` to round down the number into nearest whole number.
+    
+    ```jsx
+    function randomWholeNum() {
+      return Math.floor(Math.random() * 10);
+    }
+    console.log(randomWholeNum(3));// 8
+    ```
+    
+    To generate random whole numbers within a range, by define minimum numbers with min and a maximum number.
+    
+    ```jsx
+    function randomRange(myMin, myMax) {
+      return Math.floor(Math.random() * (myMax - myMin +1) + myMin);
+    }
+    ```
+    
+
+- Using `parseInt` function
+    
+    ```jsx
+    function convertToInteger(str) {
+     const a = parseInt(str);
+     return a;
+    }
+    
+    console.log(convertToInteger("56")); // 56
+    ```
+    
+    The `parseInt()` function parses a string and returns an integer, 
+    
+    ```jsx
+    function convertToInteger(str) {
+      const a = parseInt(str, 2);
+      return a;
+    }
+    console.log(convertToInteger("10011")); // 19
+    ```
+    
+- **Conditional (Ternary) Operator**
+    
+    The syntax is `a ? b : c`, where `a` is the condition, `b` is the code to run when the condition returns `true`, and `c` is the code to run when the condition returns `false`.
+    
+    ```jsx
+    function checkEqual(a, b) {
+      return a == b ? "Equal" : "Not Equal";
+    }
+    
+    console.log(checkEqual(1, 2)); // Not Equal
+    ```
+    
+    ternary operator also works in multiple sequences,  by combine with `if`, `else if`, and `else` statements to check multiple conditions
+    
+    ```jsx
+    function checkSign(num) {
+     return (num > 0) ? "positive" 
+     : (num < 0) ? "negative"
+     : "zero";
+    }
+    console.log(checkSign(10)); // positive
+    ```
+    
+    **Use Recursion to Create a Countdown**
+    
+    ```jsx
+    function countdown(n){
+      if (n < 1 ) {
+        return [];
+      } else {
+        const array = countdown(n-1);
+        array.unshift(n);
+        return array;
+      }
+    }
+    console.log(countdown(5));// [ 5, 4, 3, 2, 1 ]
+    ```
+    
+    **Use Recursion to Create a Range of Numbers**
+    
+    ```jsx
+    function rangeOfNumbers(startNum, endNum) {
+      if ( endNum - startNum === 0) {
+      return [startNum];
+      } else {
+        const arr  = rangeOfNumbers(startNum, endNum -1 );
+        arr.push(endNum);
+        return arr;
+      }
+    }
+    
+    console.log(rangeOfNumbers( 6,9)); // [ 6, 7, 8, 9 ]
+    ```
+    
     
 
