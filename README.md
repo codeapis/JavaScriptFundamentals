@@ -1256,6 +1256,52 @@ Day 3 of #100DaysOfCode 20:00-22:00
     
     console.log(rangeOfNumbers( 6,9)); // [ 6, 7, 8, 9 ]
     ```
+   
+   Day 9 of #100DaysOfCode
+
+- Deep dive on Recursion
     
+    [Recursion in Programming - Full Course](https://www.youtube.com/watch?v=IJDJ0kBx2LM)
+    
+    Recursion is nothing more than a method that calls itself. Condition that stopping the condition based on the Base Case, with looping Recursive Call.
+    
+    Trade Off: Pros
+    
+    - Bridges the gap between elegance & complexity
+    - Reduce need for complex loops & auxiliary data structures, with implicit stacks, self manage looping contract
+    - can reduce time complexity with memoization
+    - works really well in trees, graphs, will focus on small tiny set recursive data structures
+    
+    Trade Off: Cons
+    
+    - slowness due to CPU overhead
+    - Can lead to out memory errors / stack overflow exeptions
+    - Can be unnecessary complex if poorly constructed
+    
+    Call Stack | Cases:
+    
+    We need to return value as base case to stop the function runs (stop invoking method)
+    
+    ```jsx
+    public String reverseString(String input) {
+    // what is the base case? (when can i no longer continue)
+    // what is the smallest amount of work I can do in each iteration?
+    ```
+    
+    - String Reversal
+    - Palindrome
+    - Decimal to Binary
+    - Sum of Natural Numbers
+    - Divide & Conquer
+        - Binary Search
+        - Fibonacci (Non-Optimized)
+        - Merge Sort
+        - Linked Lists
+            - Reversal Linked Lists
+            - Merge Two Sorted Linked Lists
+    - Trees | The most works well with recursion
+        - Insert Value Into Binary Search Tree
+        - Print All Leaf Nodes
+        -
     
 
