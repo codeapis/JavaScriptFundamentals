@@ -1313,3 +1313,121 @@ Day 3 of #100DaysOfCode 20:00-22:00
 
 </aside>
 
+
+
+ECMAScript -ES6
+Day 10 of #100DaysOfCode
+ES6 → Standardized version of JavaScript
+
+- **Scopes of var & let**
+    
+    When variable declared with `var` keyword, then it wud be globally accessible, or locally if declared inside the function.
+    
+    and using `let` , will enables extra features: when let declared inside a block, statement or expression, its scope is limited to that block, statement, or expression.
+    
+    ```jsx
+    function checkScope() {
+      let i = 'function scope';
+      if (true) {
+        let i = 'block scope';
+        console.log('Block scope i is: ', i);
+      }
+      console.log('Function scope i is: ', i);
+      return i;
+    }
+    
+    // Block scope i is:  block scope
+    // Function scope i is:  function scope
+    ```
+    
+- **Using `const` in JavaScript**
+    
+    Using the `const` declaration only prevents reassignment of the variable identifier. When const used on arrays and functions are still mutable.
+    
+- **Prevent Object from mutation**
+    
+    JavaScript provides a function `Object.freeze` to prevent data mutation.
+    
+    ```jsx
+    function freezeObj() {
+      const MATH_CONSTANTS = {
+        PI: 3.14
+      };
+      Object.freeze(MATH_CONSTANTS);
+      try {
+        MATH_CONSTANTS.PI = 99;
+      } catch(ex) {
+        console.log(ex);
+      }
+      return MATH_CONSTANTS.PI;
+    }
+    const PI = freezeObj();
+    console.log(PI); // 3.14
+    ```
+    
+- **Arrow Functions**
+    
+    arrow function syntax allows you to omit the keyword `return` as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements:
+    
+    ```jsx
+    const myFunc = () => "value";
+    // also can be written like this
+    const myFunc = function() {
+      const myVar = "value";
+      return myVar;
+    }
+    
+    // both will return "value"
+    ```
+    
+    Arrow function also used with parameters, just like regular function, it’s could be pass an arguments into arrow function.
+    
+    ```jsx
+    const myConcat = (arr1, arr2) => {
+      return arr1.concat(arr2);
+    }
+    console.log(myConcat([1, 2], [3, 4, 5])); // [ 1, 2, 3, 4, 5 ]
+    ```
+    
+- **Default Parameters**
+    
+    In ES6, default parameters are given for help us to fill the argument when the argument is not specified, which the return value will shown as default parameter.
+    
+    ```jsx
+    const increment = (number, value = 1) => number + value;
+    console.log(increment(5)); // 6
+    ```
+    
+- **Rest Parameters**
+    
+    With the rest parameter, which can create functions that take a variable number of arguments. These arguments are stored in an array that can be accessed later from inside the function.
+    
+    ```jsx
+    const sum = (...args) => {
+      return args.reduce((a, b) => a + b, 0);
+    }
+    console.log(sum(0,1,2)); // 3
+    ```
+    
+- **Spread Operator**
+    
+    Spread Operator has ability to copy an array
+    
+    ```jsx
+    const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+    let arr2;
+    arr2 = [...arr1]; 
+    console.log(arr2); // [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ]
+    ```
+    
+- **Destructuring Assignment**
+    
+    ```jsx
+    const HIGH_TEMPERATURES = {
+      yesterday: 75,
+      today: 77,
+      tomorrow: 80
+    };
+    
+    const {today, tomorrow} = HIGH_TEMPERATURES;
+    ```
