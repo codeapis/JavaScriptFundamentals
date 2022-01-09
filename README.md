@@ -1299,9 +1299,17 @@ Day 3 of #100DaysOfCode 20:00-22:00
         - Linked Lists
             - Reversal Linked Lists
             - Merge Two Sorted Linked Lists
-    - Trees | The most works well with recursion
-        - Insert Value Into Binary Search Tree
-        - Print All Leaf Nodes
-        -
-    
+   - Trees | The most works well with recursion
+   - Insert Value Into Binary Search Tree
+   - Print All Leaf Nodes
+   - Graphs
+        - Depth-First Seach
+   - Optimization
+        - Memoization & Caching
+        - Tail-Call Recursion Optimization
+
+<aside>
+💡 As you considering the optimization technique, think about what language you’re using. and think about the compiler that you’re using and where your code is being executed to see if this sort of optimization is supported or not.
+
+</aside>
 
