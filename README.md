@@ -1459,4 +1459,236 @@ console.log(failuresList);
   '<li class="text-warning">linebreak</li>' ]
 ```
 
-
+- Object Property Shorthand
+    
+    ES6 provides the syntactic sugar to eliminate the redundancy of having to write `x: x`. You can simply write `x` once, and it will be converted to`x: x`
+    
+    ```jsx
+    //from this
+    const createPerson = (name, age, gender) => {
+      return {
+        name: name,
+        age: age,
+        gender: gender
+      };
+    };
+    
+    // to this
+    const createPerson = (name, age, gender) => ({ name, age, gender});
+    ```
+    
+- Concise Declarative Function in ES6
+    
+    ```jsx
+    // ES5 function method
+    const person = {
+      name: "Taylor",
+      sayHello: function() {
+        return `Hello! My name is ${this.name}.`;
+      }
+    };
+    
+    //ES6 way
+    const person = {
+      name: "Taylor",
+      sayHello() { // remove 'function'
+        return `Hello! My name is ${this.name}.`;
+      }
+    };
+    ```
+    
+- Class Syntax
+    
+    `class` keywords are used to create objects in ES6, to utilize this syntax, we need use UpperCamelCase and the `constructor` method (special method for creating and initializing an object created with a class)
+    
+    ```jsx
+    class Vegetable {
+      constructor(name) {
+        this.name = name;
+      }
+    }
+    const carrot = new Vegetable('carrot');
+    console.log(carrot.name); // 'carrot'
+    ```
+    
+- getters & setters
+    
+    Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+    
+    Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function.
+    
+    ```jsx
+    class Thermostat{
+      constructor(f) {
+        this.f = f;
+      }
+      // getter
+      get temperature() {
+        return (5/9)*(this.f -32);
+      }
+      //setter
+      set temperature(c) {
+        this.f = (c*9.0)/5 + 32;
+      }
+    
+    }
+    const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+    let temp = thermos.temperature; // 24.44 in Celsius
+    thermos.temperature = 26;
+    temp = thermos.temperature; // 26 in Celsius
+    ```
+    
+- Module Script
+    
+    In order to make JavaScript more modular, clean, and maintainable; ES6 introduced a way to easily share code among JavaScript files. This involves exporting parts of a file for use in one or more other files, and importing the parts you need, where you need them.
+    
+    ```jsx
+    <html>
+      <body>
+    <script type="module" src="index.js"></script> 
+      </body>
+    </html>
+    ```
+    
+- Export to share a code block
+    
+    variables can share from one to multiple Javascript files, by using `export` to the intended variables. When you export a variable or function, you can import it in another file and use it without having to rewrite the code.
+    
+    ```jsx
+    const uppercaseString = (string) => {
+      return string.toUpperCase();
+    }
+    
+    const lowercaseString = (string) => {
+      return string.toLowerCase()
+    }
+    
+    export { uppercaseString, lowercaseString };
+    ```
+    
+- Reuse JS Code using `import`
+    
+    `import` allows you to choose which parts of a file or module to load. and we can also import one or more item from the file
+    
+    ```jsx
+    import { uppercaseString, lowercaseString } from './string_functions.js';
+    
+    uppercaseString("hello");
+    lowercaseString("WORLD!");
+    ```
+    
+- using `*` to import everything from the file
+    
+    ```jsx
+    import * as stringFunctions from "./string_functions.js";
+    
+    stringFunctions.uppercaseString("hello");
+    stringFunctions.lowercaseString("WORLD!");
+    ```
+    
+- Export Fallback
+    
+    *export default*. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+    
+    you can only have one value be a default export in each module or file. Additionally, you cannot use `export default` with `var`, `let`, or `const`
+    
+    ```jsx
+    export default function subtract(x, y) {
+      return x - y;
+    }
+    ```
+    
+- Import a Default Export
+    
+    To import a default export, you need to use a different  `import`   syntax, like this
+    
+    ```jsx
+    import subtract from "./math_functions.js";
+    subtract(7,4);
+    ```
+    
+- JavaScript Promise
+    
+    `Promise` is a constructor function, so you need to use the `new`keyword to create one. It takes a function, as its argument, with two parameters - `resolve` and `reject`. These are methods used to determine the outcome of the promise. The syntax looks like this:
+    
+    ```jsx
+    const myPromise = new Promise((resolve, reject) => {
+    
+    });
+    ```
+    
+    A promise has three states: `pending`, `fulfilled`, and `rejected`. to actually finish the promise, we need build method to take the argument resolve or reject to fulfilled.
+    
+    ```jsx
+    const myPromise = new Promise((resolve, reject) => {
+      if(condition here) {
+        resolve("Promise was fulfilled");
+      } else {
+        reject("Promise was rejected");
+      }
+    });
+    
+    // sample
+    const makeServerRequest = new Promise((resolve, reject) => {
+      // responseFromServer represents a response from a server
+      let responseFromServer;
+        
+      if(responseFromServer) {
+        resolve("We got the data");
+      } else {  
+        reject("Data not received");
+      }
+    });
+    ```
+    
+    If we’d like to handle `Promise`, This can be achieved by using the `then` method. The `then` method is executed immediately after your promise is fulfilled with `resolve`.
+    
+    ```jsx
+    myPromise.then(result => {
+      
+    });
+    
+    // sample
+    const makeServerRequest = new Promise((resolve, reject) => {
+      // responseFromServer is set to true to represent a successful response from a server
+      let responseFromServer = true;
+        
+      if(responseFromServer) {
+        resolve("We got the data");
+      } else {  
+        reject("Data not received");
+      }
+    });
+    
+    makeServerRequest.then(result => {
+      console.log(result);
+    })
+    ```
+    
+    if the Promise got rejected, we handle them with `catch`
+    
+    ```jsx
+    myPromise.catch(error => {
+      
+    });
+    // sample
+    const makeServerRequest = new Promise((resolve, reject) => {
+      // responseFromServer is set to false to represent an unsuccessful response from a server
+      let responseFromServer = false;
+        
+      if(responseFromServer) {
+        resolve("We got the data");
+      } else {  
+        reject("Data not received");
+      }
+    });
+    
+    makeServerRequest.then(result => {
+      console.log(result);
+    });
+    
+    makeServerRequest.catch(error => {
+      console.log(error);
+      });
+    ```
+    
