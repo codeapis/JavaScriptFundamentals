@@ -1691,4 +1691,101 @@ console.log(failuresList);
       console.log(error);
       });
     ```
+**REGULAR EXPRESSION**
+Regular expressions are used in programming languages to match parts of strings. You create patterns to help you do that matching.
+
+Day 13 of #100DaysOfCode
+
+- `.test()` method
     
+    takes the regex, applies it to a string (which is placed inside the parentheses), and returns `true` or `false` if your pattern finds something or not.
+    
+    ```jsx
+    let myString = "Hello, World!";
+    let myRegex = /Hello/;
+    let result = myRegex.test(myString); // true
+    ```
+    
+- Match a Literal String with Different Possibilities
+    
+    We can search for multiple patterns using the  `alternation`  or  `OR`  operator: `|`.
+    
+    ```jsx
+    let petString = "James has a pet cat.";
+    let petRegex = /dog|cat|bird|fish/; 
+    let result = petRegex.test(petString);
+    ```
+    
+- Ignore Case while matching
+    
+    This regex can match the strings `ignorecase`, `igNoreCase`, and `IgnoreCase`.
+    
+    ```jsx
+    let myString = "freeCodeCamp";
+    let fccRegex = /freeCodeCamp/i; 
+    let result = fccRegex.test(myString);
+    ```
+    
+- Extract Matches `.match()`
+    
+    Note that the `.match` syntax is the "opposite" of  the  `.test` method
+    
+    ```jsx
+    'string'.match(/regex/);
+    /regex/.test('string');
+    
+    //sample
+    let extractStr = "Extract the word 'coding' from this string.";
+    let codingRegex = /coding/; 
+    let result = extractStr.match(codingRegex);
+    ```
+    
+- `g` flag
+    
+    `g` flag was used to find more that the first match
+    
+    ```jsx
+    let twinkleStar = "Twinkle, twinkle, little star";
+    let starRegex = /Twinkle/gi; 
+    let result = twinkleStar.match(starRegex); 
+    ```
+    
+- Wildcard period
+    
+    The wildcard character `.` will match any one character. The wildcard is also called `dot` and `period`. You can use the wildcard character just like any other character in the regex. For example, if you wanted to match `hug`, `huh`, `hut`, and `hum`, you can use the regex `/hu./` to match all four words.
+    
+    ```jsx
+    let exampleStr = "Let's have fun with regular expressions!";
+    let unRegex = /un./; 
+    let result = unRegex.test(exampleStr);
+    ```
+    
+- Matching single character with multiple possibilities
+    
+    You can search for a literal pattern with some flexibility with *character classes*. Character classes allow you to define a group of characters you wish to match by placing them inside square (`[` and `]`) brackets.
+    
+    ```jsx
+    let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+    let vowelRegex = /[aeiou]/gi;
+    let result = quoteSample.match(vowelRegex); 
+    ```
+    
+- Match Letters of the Alphabet
+    
+    Inside a character set, you can define a range of characters to match using a hyphen character: `-`.
+    
+    For example, to match lowercase letters `a` through `e` you would use `[a-e]`.
+    
+    ```jsx
+    let quoteSample = "The quick brown fox jumps over the lazy dog.";
+    let alphabetRegex = /[a-z]/gi; 
+    let result = quoteSample.match(alphabetRegex);
+    ```
+    
+- Match Numbers and Letters of the Alphabet
+    
+    ```jsx
+    let quoteSample = "Blueberry 3.141592653s are delicious.";
+    let myRegex = /[h-s2-6]/ig; 
+    let result = quoteSample.match(myRegex); 
+    ```
