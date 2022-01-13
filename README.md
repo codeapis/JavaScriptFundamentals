@@ -1789,3 +1789,31 @@ Day 13 of #100DaysOfCode
     let myRegex = /[h-s2-6]/ig; 
     let result = quoteSample.match(myRegex); 
     ```
+
+- Find Character for one or more
+    
+    ```jsx
+    let difficultSpelling = "Mississippi";
+    let myRegex = /s+/g; // Change this line
+    let result = difficultSpelling.match(myRegex);
+    ```
+    
+- Match Characters that Occur Zero or More Times
+    
+    ```jsx
+    // Only change code below this line
+    let chewieRegex = /Aa*/; // Change this line
+    // Only change code above this line
+    
+    let result = chewieQuote.match(chewieRegex);
+    ```
+    
+- Find Characters with Lazy Matching
+    
+    you can use the `?` character to change it to lazy matching.
+    
+    ```jsx
+    let text = "<h1>Winter is coming</h1>";
+    let myRegex = /<.*?>/; // Change this line
+    let result = text.match(myRegex);
+    ```
