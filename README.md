@@ -1817,3 +1817,24 @@ Day 13 of #100DaysOfCode
     let myRegex = /<.*?>/; // Change this line
     let result = text.match(myRegex);
     ```
+
+
+- Match Beginning String Patterns
+    
+    We used the caret character (`^`) inside a character set to create a negated character set in the form `[^thingsThatWillNotBeMatched]`. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+    
+    ```jsx
+    let rickyAndCal = "Cal and Ricky both like racing.";
+    let calRegex = /^Cal/; 
+    let result = calRegex.test(rickyAndCal);
+    ```
+    
+- Match Ending String Patterns
+    
+    We can search the end of strings using the dollar sign character `$` at the end of the regex.
+    
+    ```jsx
+    let caboose = "The last car on a train is the caboose";
+    let lastRegex = /caboose$/;
+    let result = lastRegex.test(caboose);
+    ```
