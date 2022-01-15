@@ -1838,3 +1838,136 @@ Day 13 of #100DaysOfCode
     let lastRegex = /caboose$/;
     let result = lastRegex.test(caboose);
     ```
+
+
+- match all number: `/\d/g`
+- match all non numbers : `/\D/g`
+- Using shorthand character class (`\w` )to match all letters and number
+- Restrict Possible Username
+    
+    ```jsx
+    //case
+    //Usernames can only use alpha-numeric characters.
+    //The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+    //Username letters can be lowercase and uppercase.
+    //Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+    
+    //solutions
+    let username = "JackOfAllTrades";
+    let userCheck = /^[a-z]([0-9]{2,}|[a-z]+\d*)$/i; 
+    let result = userCheck.test(username);
+    ```
+    
+- Match whitespace
+    
+    using `\s` to search the white space, This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters.
+    
+    ```jsx
+    let sample = "Whitespace is important in separating words";
+    let countWhiteSpace = /\s/g;
+    let result = sample.match(countWhiteSpace);
+    ```
+    
+
+- Match Non-Whitespace Characters
+    
+    Search for non-whitespace using `\S`, which is an uppercase `s`. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters.
+    
+    ```jsx
+    let sample = "Whitespace is important in separating words";
+    let countNonWhiteSpace = /\S/g; 
+    let result = sample.match(countNonWhiteSpace);
+    ```
+    
+- Specify Upper and Lower Number of Matches
+    
+    Recall that you use the plus sign `+` to look for one or more characters and the asterisk `` to look for zero or more characters.
+    
+    You can specify the lower and upper number of patterns with *quantity specifiers*. Quantity specifiers are used with curly brackets (`{` and `}`).
+    
+    ```jsx
+    let ohStr = "Ohhh no";
+    let ohRegex = /Oh{3,6}\sno/;
+    let result = ohRegex.test(ohStr);
+    ```
+    
+- Specify Only the Lower Number of Matches
+    
+    To only specify the lower number of patterns, keep the first number followed by a comma
+    
+    ```jsx
+    let haStr = "Hazzzzah";
+    let haRegex = /Haz{4,}ah/; // Change this line
+    let result = haRegex.test(haStr);
+    ```
+    
+- Specify Exact Number of Matches
+    
+    To specify a certain number of patterns, just have that one number between the curly brackets.
+    
+    ```jsx
+    let timStr = "Timmmmber";
+    let timRegex = /Tim{4}ber/; 
+    let result = timRegex.test(timStr);
+    ```
+    
+- Check for All or None
+    
+    You can specify the possible existence of an element with a question mark, `?`. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
+    
+    ```jsx
+    let favWord = "favorite";
+    let favRegex = /favou?rite/;
+    let result = favRegex.test(favWord);
+    ```
+    
+- Positive and Negative Lookahead
+    
+    *Lookaheads* are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string.
+    
+    - A positive lookahead is used as `(?=...)` where the `...` is the required part that is not matched.
+    - A negative lookahead is used as `(?!...)` where the `...` is the pattern that you do not want to be there.
+    
+    ```jsx
+    let sampleWord = "astronaut";
+    let pwRegex = /(?=\w{6,})(?=\w*\d{2})/;
+    let result = pwRegex.test(sampleWord);
+    ```
+    
+- Check For Mixed Grouping of Characters
+    
+    ```jsx
+    let myString = "Eleanor Roosevelt";
+    let myRegex = /(Eleanor|Franklin).*Roosevelt/;
+    let result = myRegex.test(myString); 
+    // After passing the challenge experiment with myString and see how the grouping works
+    console.log(result); // true, (using .* to allow middle name
+    ```
+    
+- Reuse Patterns Using Capture Groups
+    
+    ```jsx
+    let repeatNum = "42 42 42";
+    let reRegex = /^(\d+)\s\1\s\1$/;
+    let result = reRegex.test(repeatNum);
+    ```
+    
+- Use Capture Groups to Search and Replace
+    
+    You can search and replace text in a string using `.replace()` on a string. The inputs for `.replace()` is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
+    
+    ```jsx
+    let str = "one two three";
+    let fixRegex = /(\w+)\s(\w+)\s(\w+)/; 
+    let replaceText = "$3 $2 $1"; 
+    let result = str.replace(fixRegex, replaceText);
+    ```
+    
+- Remove Whitespace from Start and End
+    
+    ```jsx
+    let hello = "   Hello, World!  ";
+    let wsRegex = /^\s+|\s+$/g; 
+    let result = hello.replace(wsRegex, ""); 
+    console.log(result);
+    ```
