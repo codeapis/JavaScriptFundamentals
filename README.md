@@ -1971,3 +1971,81 @@ Day 13 of #100DaysOfCode
     let result = hello.replace(wsRegex, ""); 
     console.log(result);
     ```
+    
+**Debugging**
+
+- **Use the JavaScript Console to Check the Value of a Variable**
+    
+    The `console.log()` method, which "prints" the output of what's within its parentheses to the console, will likely be the most helpful debugging tool.
+    
+- **Understanding the Differences between the freeCodeCamp and Browser Console**
+    
+    There are many methods to use with `console` to output messages. `log`, `warn`, and `clear` to name a few. The freeCodeCamp console will only output `log` messages, while the browser console will output all messages.
+    
+- **Use typeof to Check the Type of a Variable**
+    
+    use `typeof` to check the data structure, or type, of a variable.
+    
+    JavaScript recognizes six primitive (immutable) data types: `Boolean`, `Null`, `Undefined`, `Number`, `String`, and `Symbol` (new with ES6) and one type for mutable items: `Object`.
+    
+    ```jsx
+    let seven = 7;
+    let three = "3";
+    console.log(seven + three); // 73
+    console.log(typeof seven); // number
+    console.log(typeof three); // string
+    ```
+    
+- **Catch Misspelled Variable and Function Names**
+- **Catch Unclosed Parentheses, Brackets, Braces and Quotes**
+    
+    One way to avoid this mistake is as soon as the opening character is typed, immediately include the closing match, then move the cursor back between them and continue coding.
+    
+- **Catch Use of Assignment Operator Instead of Equality Operator**
+- **Catch Mixed Usage of Single and Double Quotes**
+- **Catch Missing Open and Closing Parenthesis After a Function Call:** When a function or method doesn't take any arguments, you may forget to include the (empty) opening and closing parentheses when calling it.
+    
+    ```jsx
+    function getNine() {
+      let x = 6;
+      let y = 3;
+      return x + y;
+    }
+    
+    let result = getNine();
+    console.log(result);
+    ```
+    
+- **Catch Arguments Passed in the Wrong Order When Calling a Function**
+    
+    ```jsx
+    function raiseToPower(b, e) {
+      return Math.pow(base, exp);
+    }
+    
+    let base = 2;
+    let exp = 3;
+    let power = raiseToPower(base, exp);
+    console.log(power);
+    ```
+    
+- **Catch Off By One Errors When Using Indexing**
+    
+    *Off by one errors* (sometimes called OBOE) crop up when you're trying to target a specific index of a string or array (to slice or access a segment), or when looping over the indices of them. JavaScript indexing starts at zero, not one, which means the last index is always one less than the length of the item.
+    
+    ```jsx
+    function countToFive() {
+      let firstFive = "12345";
+      let len = firstFive.length;
+      // Only change code below this line
+      for (let i = 0; i < len; i++) {
+      // Only change code above this line
+        console.log(firstFive[i]);
+      }
+    }
+    
+    countToFive(); // 1 2 3 4 5 
+    ```
+    
+- **Use Caution When Reinitializing Variables Inside a Loop**
+- **Prevent Infinite Loops with a Valid Terminal Condition**
