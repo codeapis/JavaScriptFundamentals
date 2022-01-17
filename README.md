@@ -2049,3 +2049,28 @@ Day 13 of #100DaysOfCode
     
 - **Use Caution When Reinitializing Variables Inside a Loop**
 - **Prevent Infinite Loops with a Valid Terminal Condition**
+
+**Basic Data Structures**
+- **Use an Array to Store a Collection of Data**
+    
+    a *one-dimensional array*, meaning it only has one level, or that it does not have any other arrays nested within it. Notice it contains *booleans*, *strings*, and *numbers*, among other valid JavaScript data types.
+    
+    a *multi-dimensional array*, or an array that contains other arrays. Notice that this array also contains JavaScript *objects*
+    
+    ```jsx
+    let yourArray = ['one', 2, 'three', true, false, undefined, null];Access an Array's Contents Using Bracket Notation
+    ```
+    
+- **Access an Array's Contents Using Bracket Notation**
+    
+    In an array, each array item has an *index*. This index doubles as the position of that item in the array. JavaScript arrays are *zero-indexed*, meaning that the first element of an array is actually at the ***zeroth*** position, not the first.
+    
+    ```jsx
+    let myArray = ["a", "b", "c", "d"];
+    myArray[1] = "x"
+    console.log(myArray); // ["a", "x", "c", "d"]
+    ```
+    
+- **Add Items to an Array with push() and unshift()**
+    
+    Both methods take one or more elements as parameters and add those elements to the array the method is being called on; the `push()`method adds elements to the end of an array, and `unshift()` adds elements to the beginning.
