@@ -2074,3 +2074,104 @@ Day 13 of #100DaysOfCode
 - **Add Items to an Array with push() and unshift()**
     
     Both methods take one or more elements as parameters and add those elements to the array the method is being called on; the `push()`method adds elements to the end of an array, and `unshift()` adds elements to the beginning.
+
+
+- **Remove Items from an Array with pop() and shift()**
+    
+    , `pop()` *removes* an element from the end of an array, while `shift()` removes an element from the beginning.
+    
+    ```jsx
+    function popShift(arr) {
+      let popped = arr.pop();  
+      let shifted = arr.shift(); 
+      return [shifted, popped];
+    }
+    
+    console.log(popShift(['challenge', 'is', 'not', 'complete'])); // [ 'challenge', 'complete' ]
+    ```
+    
+- **Remove Items Using splice()**
+    
+    `splice()` allows us to do just that: **remove any number of consecutive elements** from anywhere in an array.
+    
+    ```jsx
+    const arr = [2, 4, 5, 1, 7, 5, 2, 1];
+    arr.splice(0,1);
+    arr.splice(3,);
+    console.log(arr); // [ 4, 5, 1]
+    ```
+    
+- **Add Items Using splice()**
+    
+    `splice()` can take up to three parameters, by use the third parameter, comprised of one or more element(s), to add to the array. This can be incredibly useful for quickly switching out an element, or a set of elements, for another.
+    
+    ```jsx
+    function htmlColorNames(arr) {
+      arr.splice(0,2,'DarkSalmon','BlanchedAlmond');
+      return arr;
+    }
+    
+    console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurquoise', 'FireBrick']));
+    /* [ 'DarkSalmon',
+      'BlanchedAlmond',
+      'LavenderBlush',
+      'PaleTurquoise',
+      'FireBrick' ] /*
+    ```
+    
+- **Copy Array Items Using slice()**
+    
+    ```jsx
+    function forecast(arr) {
+      return arr.slice(2,4); // ['warm', 'sunny',]
+    }
+    console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+    ```
+    
+- **Copy an Array with the Spread Operator**
+    
+    new *spread operator* allows us to easily copy *all* of an array's elements, in order, with a simple and highly readable syntax. The spread syntax simply looks like this: `...`
+    
+    ```jsx
+    function copyMachine(arr, num) {
+      let newArr = [];
+      while (num >= 1) {
+        newArr.push([...arr]);
+        num--;
+      }
+      return newArr;
+    }
+    
+    console.log(copyMachine([true, false, true], 2));
+    ```
+    
+- **Combine Arrays with the Spread Operator**
+    
+    to insert all the elements of one array into another, at any index.
+    
+    ```jsx
+    function spreadOut() {
+      let fragment = ['to', 'code'];
+      let sentence = ['learning', ...fragment, 'is', 'fun'];
+      return sentence;
+    }
+    
+    console.log(spreadOut()); // [ 'learning', 'to', 'code', 'is', 'fun' ]
+    ```
+    
+- **Check For The Presence of an Element With indexOf()**
+    
+    `indexOf()`takes an element as a parameter, and when called, it returns the position, or index, of that element, or `1` if the element does not exist on the array.
+    
+    ```jsx
+    function quickCheck(arr, elem) {
+      return arr.indexOf(elem) >= 0 ? true: false;
+    }
+    
+    console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+    // 
+    ```
+    
+- **Iterate Through All an Array's Items Using For Loops**
+    
+    the technique which is most flexible and offers us the greatest amount of control is a simple `for` loop.
