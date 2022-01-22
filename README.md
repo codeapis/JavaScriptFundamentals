@@ -2409,12 +2409,168 @@ Day 19 of #100DaysOfCode
     ```
     
     ```jsx
-function truncateString(str, num) {
-  return str.length > num ? str.slice(0, num) + "...": str ;
+Day 20-21
+
+```jsx
+function convertToF(celsius) {
+  let fahrenheit = (9/5)*celsius + 32;
+  return fahrenheit;
 }
 
-console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8)); // A-tisket...
+console.log(convertToF(30)); // 86
 ```
+
+- Reverse a String
+    
+    ```jsx
+    function reverseString(str) {
+      var splitStr = str.split("");
+      var reverseArr = splitStr.reverse();
+      var joinStr = reverseArr.join("");
+      return joinStr;
+    }
+    
+    console.log(reverseString("hello")); // "olleh"
+    ```
+    
+- **Factorialize a Number**
+    
+    ```jsx
+    // with recursion
+    function factorialize(num) {
+    	// if the num is less than 0, reject it.
+      if (num <0)
+      return -1;
+    
+    	// if the num is 0, its factorial is 1
+      else if (num == 0)
+      return 1;
+    	// otherwise, call the recursive procedure again
+       else {
+         return (num * factorialize(num-1));
+       }
+    }
+    
+    console.log(factorialize(5)); // 120
+    
+    // with while loop
+    function factorialize(num) {
+    	// variable that store num
+      let result = num;
+    	
+    	// if num = 0, or = 1, the factorial will return 1
+      if(num === 0 || num === 1)
+      return 1;
+    
+    	// while loop, ehich decrementation by 2 at each iteration
+      while (num>1) {
+        num--;
+        result = result * num;
+      }
+    	// return the factorial
+      return result;
+    }
+    
+    console.log(factorialize(5));
+    
+    // with for loop
+    function factorialize(num) {
+    	// if num = 0, or = 1, the factorial will return 1
+      if(num === 0 || num === 1)
+      return 1;
+    
+    	// decrement i after each iteration
+      for (let i = num - 1; i >= 1; i--) {
+    	// this will store the value of num at each iteration
+        num = num * i;
+      }
+    	// return the factorial
+      return num;
+    }
+    
+    console.log(factorialize(5));
+    ```
+    
+- **Find the Longest Word in a String**
+    
+    ```jsx
+    // using for loop
+    function findLongestWordLength(str) {
+    
+    	// give split with space .split(' ') for separate each word
+      let strSplit = str.split(' ');
+      let longestWord = 0;
+    
+      // for loop
+      for ( let i = 0; i < strSplit.length; i++) {
+    		// if current word are the longerst than prev, make the current word = longest
+        if(strSplit[i].length > longestWord) {
+          longestWord = strSplit[i].length
+        }
+      }
+      return longestWord;
+    }
+    
+    console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); // 6
+    ```
+    
+- **Return Largest Numbers in Arrays**
+    
+    ```jsx
+    // using for loop
+    function largestOfFour(arr) {
+      let results = [];
+      for (let i = 0; i < arr.length; i++) {
+        let largestNumber = arr[i][0];
+        for (let j = 1; j < arr[i].length; j++) {
+          if (arr[i][j] > largestNumber) {
+            largestNumber = arr[i][j];
+          }
+        }
+        results[i] = largestNumber;
+      }
+      return results;
+    }
+    console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+    // [ 5, 27, 39, 1001 ]
+    ```
+    
+- **Confirm the Ending**
+    
+    ```jsx
+    function confirmEnding(str, target) {
+      return (str.substr(-target.length) === target) ? true : false;
+    }
+    
+    console.log(confirmEnding("Bastian", "n")); // true
+    ```
+    
+- **Repeat a String Repeat a String**
+    
+    ```jsx
+    // using while loop
+    function repeatStringNumTimes(str, num) {
+       let rptStr = "";
+       while (num > 0) {
+         rptStr += str;
+         num--;
+       }
+       return rptStr;
+    }
+    
+    console.log(repeatStringNumTimes("abc", 3)); // abcabcabc
+    ```
+    
+- **Truncate a String**
+    
+    ```jsx
+    function truncateString(str, num) {
+      return str.length > num ? str.slice(0, num) + "...": str ;
+    }
+    
+    console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8)); // A-tisket...
+    ```
+    
 
     
     
