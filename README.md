@@ -2570,7 +2570,86 @@ console.log(convertToF(30)); // 86
     
     console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8)); // A-tisket...
     ```
+- **Finders Keepers**
     
+    ```jsx
+    function findElement(arr, func) {
+      let num = 0;
+      for (let i=0; i < arr.length; i++) {
+        num = arr[i];
+    		// the num variable is being passed into the function,
+    		// set into each index in array
+        if(func(num)){
+          return num;
+        }
+      }
+      return undefined;
+    }
+    
+    console.log(findElement([1, 2, 3, 4], num => num % 2 === 0)); // 2
+    ```
+    
+- **Boo who**
+    
+    Checking if any value is classified as boolean primitive.
+    
+    ```jsx
+    function booWho(bool) {
+      return typeof bool === 'boolean';
+    }
+    
+    console.log(booWho(null)); // false
+    ```
+    
+- **Title Case a Sentence**
+    
+    ```jsx
+    function titleCase(str) {
+      return str.replace(
+        /\w\S*/g,
+        function(txt){
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+      );
+    }
+    
+    console.log(titleCase("I'm a little tea pot")); //I'm A Little Tea Pot
+    ```
+    
+- **Slice and Splice**
+    
+    ```jsx
+    function frankenSplice(arr1, arr2, n) {
+      
+      // create a copy of arr2, using slice() = extracts a section of a string and returns it as a new string
+      let combineArr = arr2.slice(); // [4,5,6]
+    
+      // use spread opt on arr1 for copy each element on arr1
+      // splice() hanges the contents of an array by removing
+    	// or replacing existing elements and/or adding new elements.
+      combineArr.splice(n, 0, ...arr1);
+      
+      return combineArr;
+    }
+    
+    console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1)); // [ 4, 1, 2, 3, 5, 6 ]
+    ```
+    
+- **Falsy Bouncer**
+    
+    Falsy values in JavaScript are `false`, `null`, `0`, `""`, `undefined`, and `NaN`.
+    
+    ```jsx
+    function bouncer(arr) {
+      let newArray = [];
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i]) newArray.push(arr[i]);
+      }
+      return newArray;
+    }
+    
+    console.log(bouncer([7, "ate", "", false, 9])); // [ 7, 'ate', 9 ]
+    ```
 
     
     
