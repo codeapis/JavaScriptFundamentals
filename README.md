@@ -2650,6 +2650,60 @@ console.log(convertToF(30)); // 86
     
     console.log(bouncer([7, "ate", "", false, 9])); // [ 7, 'ate', 9 ]
     ```
-
+- **Where do I Belong**
+    
+    ```jsx
+    function getIndexToIns(arr, num) {
+      arr.sort((a,b) => a-b)
+    
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= num) {
+          return i;
+        }
+      }
+      
+      return arr.length;
+    }
+    
+    console.log(getIndexToIns([40, 60], 50)); // 1
+    ```
+    
+- Mutation
+    
+    Using `for loop`, and `indexOf`
+    
+    ```jsx
+    function mutation(arr) {
+    let test = arr[1].toLowerCase();
+    let target = arr[0].toLowerCase();
+    
+    for (let i = 0; i < test.length; i++) {
+    if (target.indexOf(test[i]) < 0) return false;
+    }
+    
+    return true;
+    } 
+    console.log(mutation(["hello", "hey"])); // false
+    ```
+    
+- **Chunky Monkey**
+    
+    Write a function that splits an array (first argument) into groups the length of `size` (second argument) and returns them as a two-dimensional array.
+    
+    ```jsx
+    function chunkArrayInGroups(arr, size) {
+    // create mty array to store data
+    let newArr = [];
+    // using for loop, start with 0, and increment by size value,
+    
+    for (let i = 0; i < arr.length; i += size) {
+    	newArr.push(arr.slice(i, i + size));
+    }
+    	return newArr;
+    }
+    
+    console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+    // [ [ 'a', 'b' ], [ 'c', 'd' ] ]
+    ```
     
     
