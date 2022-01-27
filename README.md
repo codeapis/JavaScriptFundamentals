@@ -2705,5 +2705,69 @@ console.log(convertToF(30)); // 86
     console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
     // [ [ 'a', 'b' ], [ 'c', 'd' ] ]
     ```
+  
+  - **Use Dot Notation to Access the Properties of an Object**
     
+    ```jsx
+    let dog = {
+      name: "Spot",
+      numLegs: 4
+    };
+    console.log(dog.name); // Spot
+    console.log(dog.numLegs); // 4
+    ```
+    
+- **Create a Method on an Object**
+    
+    Methods are properties that are functions. This adds different behavior to an object.
+    
+    ```jsx
+    let dog = {
+      name: "Spot",
+      numLegs: 4,
+      sayLegs: function() {
+        return "This dog has "+ dog.numLegs +  " legs.";
+      }
+    
+    };
+    
+    console.log(dog.sayLegs()); // This dog has 4 legs.
+    ```
+    
+- **Make Code More Reusable with the this Keyword**
+    
+    `this` keyword: refers to the object that the method is associated with.
+    
+    ```jsx
+    let dog = {
+      name: "Spot",
+      numLegs: 4,
+      sayLegs: function() {return "This dog has " + this.numLegs + " legs.";}
+    };
+    
+    dog.sayLegs();
+    ```
+    
+- **Define a Constructor Function**
+    
+    *Constructors* are functions that create new objects. They define properties and behaviors that will belong to the new object.
+    
+    ```jsx
+    function Dog() {
+      this.name = "Puppy";
+      this.color = "black";
+      this.numLegs = 4;
+    }
+    ```
+    
+- **Use a Constructor to Create Objects**
+    
+    ```jsx
+    function Dog() {
+      this.name = "Rupert";
+      this.color = "brown";
+      this.numLegs = 4;
+    }
+    let hound = new Dog();
+    ```
     
