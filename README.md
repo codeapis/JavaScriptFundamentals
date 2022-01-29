@@ -2770,4 +2770,18 @@ console.log(convertToF(30)); // 86
     }
     let hound = new Dog();
     ```
-    
+
+- **Extend Constructors to Receive Argument**
+
+```jsx
+function Dog(name, color) {
+this.name = name;
+this.color = color;
+this.numLegs = 4;
+}
+
+let terrier = new Dog("George", "White");
+
+console.log(terrier); 
+```
+
