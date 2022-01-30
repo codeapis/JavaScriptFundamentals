@@ -2785,3 +2785,112 @@ let terrier = new Dog("George", "White");
 console.log(terrier); 
 ```
 
+- **Verify an Object's Constructor with instanceoF**
+    
+    ```jsx
+    // instanceof allows to compate an object to a constructor, return true or false
+    function House(numBedrooms) {
+      this.numBedrooms = numBedrooms;
+    }
+    
+    let myHouse = new House(7);
+    myHouse instanceof House;
+    ```
+    
+- **Understand Own Properties**
+    
+    ```jsx
+    function Bird(name) {
+      this.name = name;
+      this.numLegs = 2;
+    }
+    
+    let canary = new Bird("Tweety");
+    let ownProps = [];
+    
+    for (let property in canary){
+      if(canary.hasOwnProperty(property)){
+        ownProps.push(property);
+      }
+    }
+    
+    console.log(ownProps); // [name, numLegs]
+    ```
+    
+- **Use Prototype Properties to Reduce Duplicate Code**
+    
+    Nearly every object in JavaScript has a `prototype` property which is part of the constructor function that created it.
+    
+    ```jsx
+    function Dog(name) {
+      this.name = name;
+    }
+    
+    Dog.prototype.numLegs = 2;
+    let beagle = new Dog("Snoopy");
+    
+    // Now all instances of Dog have the numLegs property.
+    ```
+    
+- **Iterate Over All Properties**
+    
+    Own properties are defined directly on the object instance itself. And prototype properties are defined on the `prototype`.
+    
+    ```jsx
+    function Dog(name) {
+      this.name = name;
+    }
+    
+    Dog.prototype.numLegs = 4;
+    
+    let beagle = new Dog("Snoopy");
+    
+    let ownProps = [];
+    let prototypeProps = [];
+    
+    // Only change code below this line
+    for (let property in beagle){
+       if(Dog.hasOwnProperty(property)) {
+        ownProps.push(property);
+      } else {
+        prototypeProps.push(property);
+      }
+    }
+    
+    console.log(ownProps); // [ 'name']
+    console.log(prototypeProps); // [ 'numLegs' ]
+    ```
+    
+- **Understand the Constructor Property**
+    
+    ```jsx
+    function Dog(name) {
+      this.name = name;
+    }
+    
+    function joinDogFraternity(candidate) {
+      if(candidate.constructor === Dog) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    ```
+    
+- **Change the Prototype to a New Object**
+    
+    ```jsx
+    function Dog(name) {
+      this.name = name;
+    }
+    
+    Dog.prototype = {
+      numLegs: 4,
+      eat: function() {
+        console.log("nyam nyam");
+      },
+      describe: function() {
+        console.log("My Dog is" + this.name)
+      }
+    };
+    ```
