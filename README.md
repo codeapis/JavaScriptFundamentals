@@ -2894,3 +2894,131 @@ console.log(terrier);
       }
     };
     ```
+- **Remember to Set the Constructor Property when Changing the Prototype**
+    
+    Manually set the prototype to a new object could remove the `constructor` property.
+    
+    ```jsx
+    function Dog(name) {
+      this.name = name;
+    }
+    
+    Dog.prototype = {
+    
+      constructor: Dog, // solution
+      numLegs: 4,
+      eat: function() {
+        console.log("nom nom nom");
+      },
+      describe: function() {
+        console.log("My name is " + this.name);
+      }
+    };
+    ```
+    
+- **Understand Where an Object’s Prototype Comes From**
+    
+    ```jsx
+    function Dog(name) {
+      this.name = name;
+    }
+    
+    let beagle = new Dog("Snoopy");
+    
+    console.log(Dog.prototype.isPrototypeOf(beagle)); // true
+    ```
+    
+- **Understand the Prototype Chain**
+    
+    All objects in JavaScript (with a few exceptions) have a `prototype`. Also, an object’s `prototype` itself is an object.
+    
+    ```jsx
+    function Dog(name) {
+      this.name = name;
+    }
+    
+    let beagle = new Dog("Snoopy");
+    
+    Dog.prototype.isPrototypeOf(beagle);  // yields true
+    
+    Object.prototype.isPrototypeOf(Dog.prototype);
+    ```
+    
+- **Use Inheritance So You Don't Repeat Yourself**
+    
+    ```jsx
+    function Cat(name) {
+      this.name = name;
+    }
+    
+    Cat.prototype = {
+      constructor: Cat,
+    };
+    
+    function Bear(name) {
+      this.name = name;
+    }
+    
+    Bear.prototype = {
+      constructor: Bear,
+    };
+    
+    function Animal() { }
+    
+    Animal.prototype = {
+      constructor: Animal,
+      eat: function() {
+        console.log("nom nom nom");
+      }
+    
+    };
+    
+    // Remove the “eat” method from Cat.prototype and Bear.prototype and add it to the Animal.prototype.
+    ```
+    
+- **Inherit Behaviors from a Supertype**
+    
+    ```jsx
+    function Animal() { }
+    
+    Animal.prototype = {
+      constructor: Animal,
+      eat: function() {
+        console.log("nom nom nom");
+      }
+    };
+    
+    let animal = new Animal();
+    
+    let duck = Object.create(Animal.prototype); 
+    let beagle = Object.create(Animal.prototype); 
+    
+    // Object.create(obj) creates a new object, and
+    // sets obj as the new object's prototype. 
+    // Recall that the prototype is like the "recipe" 
+    // for creating an object. By setting the prototype of
+    // animal to be the prototype of Animal, 
+    // you are effectively giving the animal instance 
+    // the same "recipe" as any other instance of Animal.
+    ```
+    
+- **Set the Child's Prototype to an Instance of the Parent**
+    
+    ```jsx
+    function Animal() { }
+    
+    Animal.prototype = {
+      constructor: Animal,
+      eat: function() {
+        console.log("nom nom nom");
+      }
+    };
+    
+    function Dog() { }
+    
+    // Only change code below this line
+    Dog.prototype = Object.create(Animal.prototype);
+    
+    let beagle = new Dog();
+    beagle.eat(); // nom nom nom
+    ```
