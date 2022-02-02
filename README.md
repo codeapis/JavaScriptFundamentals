@@ -3058,4 +3058,63 @@ console.log(terrier);
     };
     
     let beagle = new Dog();
+  
+  ```
+  
+- **Override Inherited Methods**
+    
+    ```jsx
+    function Bird() { }
+    
+    Bird.prototype.fly = function() { return "I am flying!"; };
+    
+    function Penguin() { }
+    Penguin.prototype = Object.create(Bird.prototype);
+    Penguin.prototype.constructor = Penguin;
+    
+    Penguin.prototype.fly = function() {
+      return "Alas, this is a flightless bird.";
+    };
+    
+    let penguin = new Penguin();
+    console.log(penguin.fly());
     ```
+    
+- **Use a Mixin to Add Common Behavior Between Unrelated Objects**
+    
+    A mixin allows other objects to use a collection of functions.
+    
+    ```jsx
+    let bird = {
+      name: "Donald",
+      numLegs: 2
+    };
+    
+    let boat = {
+      name: "Warrior",
+      type: "race-boat"
+    };
+    
+    let glideMixin = function(obj) {
+      obj.glide = function() {
+        console.log("Flying, wooosh!");
+      }
+    };
+    
+    glideMixin(bird);
+    glideMixin(boat);
+    
+    bird.glide(); // Flying, wooosh!
+    boat.glide(); // Flying, wooosh!
+    ```
+    
+ - **Use Closure to Protect Properties Within an Object from Being Modified Externally**
+    
+    ```jsx
+    function Bird() {
+      let weight = 15;
+      this.getWeight = () => weight;  // 15
+    }
+    ```
+  
+  
