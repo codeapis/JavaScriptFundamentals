@@ -3117,4 +3117,31 @@ console.log(terrier);
     }
     ```
   
-  
+- **Understand the Immediately Invoked Function Expression (IIFE)**
+    
+    The two parentheses () at the end of the function expression cause it to be immediately executed or invoked. This pattern is known as an *immediately invoked function expression* or *IIFE*.
+    
+    ```jsx
+    (function () {
+      console.log("A cozy nest is ready");
+    })();
+    ```
+    
+- **Use an IIFE to Create a Module**
+    
+    ```jsx
+    let funModule = (function(){
+      return {
+        isCuteMixin : function(obj) {
+      obj.isCute = function() {
+        return true;
+      };
+        },
+        singMixin: function(obj) {
+      obj.sing = function() {
+        console.log("Singing to an awesome tune");
+      };
+        }
+      }
+    })();
+    ```
