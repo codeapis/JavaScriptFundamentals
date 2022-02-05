@@ -3256,3 +3256,37 @@ console.log(terrier);
       .join(workWindow.tabClose(1).tabOpen());
     console.log(finalTabs.tabs);
     ```
+- **Avoid Mutations and Side Effects Using Functional Programming**
+    
+    One of the core principles of functional programming is to not change things. Changes lead to bugs. It's easier to prevent bugs knowing that your functions don't change anything, including the function arguments or any global variable.
+    
+    Recall that in functional programming, changing or altering things is called *mutation*, and the outcome is called a *side effect*. A function, ideally, should be a *pure function*, meaning that it does not cause any side effects.
+    
+    ```jsx
+    // The global variable
+    let fixedValue = 4;
+    
+    function incrementer() {
+      return fixedValue + 1;
+    }
+    
+    var newValue = incrementer(); // 5
+    console.log(fixedValue); //  4
+    ```
+    
+- **Pass Arguments to Avoid External Dependence in a Function**
+    
+    Another principle of functional programming is to always declare your dependencies explicitly. This means if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.
+    
+    ```jsx
+    // The global variable
+    let fixedValue = 4;
+    
+    function incrementer(a) {
+    var newValue = a + 1
+    return newValue;
+    
+    }
+    
+    console.log(incrementer(fixedValue)); // 5
+    ```
