@@ -3621,7 +3621,92 @@ Day 34 - 35 of #100DaysOfCode
       { title: 'Batman Begins', rating: '8.3' } ]
     */
     ```
-   
+ - **Implement the filter Method on a Prototype**
+    
+    ```jsx
+    // The global variable
+    const s = [23, 65, 98, 5];
+    
+    Array.prototype.myFilter = function(callback) {
+      const newArray = [];
+      this.forEach(function(x) {
+    	if (callback(x) == true) {
+    	 newArray.push(x);
+     }
+    });
+      return newArray;
+    };
+    
+    const new_s = s.myFilter(function(item) {
+      return item % 2 === 1;
+    });
+    ```
+    
+- **Return Part of an Array Using the slice Method**
+    
+    the slice will returns a copy of certain elements of an array.
+    
+    containing two arguments; 1st will take begining, and 2nd will be end of slice.
+    
+    ```jsx
+    function sliceArray(anim, beginSlice, endSlice) {
+      return anim.slice(beginSlice, endSlice);
+    }
+    
+    const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+    sliceArray(inputAnim, 1, 3);
+    ```
+    
+- **Remove Elements from an Array Using slice Instead of splice**
+    
+    `splice` will delete of an item in array, and keep the rest from it.
+    
+    ```jsx
+    function nonMutatingSplice(cities) {
+      
+       let newCity = cities.slice(0,3); // taking index of 0 to 3
+       return newCity; // returning new array
+    }
+    
+    const inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+    console.log(nonMutatingSplice(inputCities)); // [ 'Chicago', 'Delhi', 'Islamabad' ]
+    ```
+    
+- **Combine Two Arrays Using the concat Method**
+    
+    *Concatenation* means to join items end to end.
+    
+    ```jsx
+    function nonMutatingConcat(original, attach) {
+      let arr = original.concat(attach); // merging array
+      return arr; // return new concatenated array
+    }
+    
+    const first = [1, 2, 3];
+    const second = [4, 5];
+    console.log(nonMutatingConcat(first, second)); // [ 1, 2, 3, 4, 5 ]
+    ```
+    
+- **Add Elements to the End of an Array Using concat Instead of push**
+    
+    Coz push adds an item to the end of the same array its called on. which concat just combine arrays into new one without mutating the original arrays.
+    
+    ```jsx
+    function nonMutatingPush(original, newItem) {
+      return original.concat(newItem);
+    }
+    
+    const first = [1, 2, 3];
+    const second = [4, 5];
+    console.log(nonMutatingPush(first, second)); // 1, 2, 3, 4, 5 ]
+    ```
+    
+- **Use the reduce Method to Analyze Data**
+    
+    The `reduce` method iterates over each item in an array and returns a single value (i.e. string, number, object, array). This is achieved via a callback function that is called on each iteration.
+    
+    
+ 
 
 
 
