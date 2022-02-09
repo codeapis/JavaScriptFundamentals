@@ -3842,7 +3842,103 @@ function getRating(watchList) {
 console.log(getRating(watchList));
 ```
 
-
+- **Use Higher-Order Functions map, filter, or reduce to Solve a Complex Problem**
+    
+    ```jsx
+    const squareList = arr => {
+      
+    // usinfilter and map function to square all positive integers
+      return arr
+      .filter(num => num > 0 && num % parseInt(num) === 0)
+    .map(num => Math.pow(num,2));
+      
+    };
+    
+    const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+    console.log(squaredIntegers);
+    ```
+    
+- **Sort an Array Alphabetically using the sort Method**
+    
+    ```jsx
+    function alphabeticalOrder(arr) {
+      
+      return arr.sort(function(a,b){
+        return a === b ? 0 : a > b ? 1: -1;
+      });
+      
+    }
+    
+    console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
+    ```
+    
+- **Return a Sorted Array Without Changing the Original Array**
+    
+    ```jsx
+    const globalArray = [5, 6, 3, 2, 9];
+    
+    function nonMutatingSort(arr) {
+      // copy array without mutating using slice method
+      let newArr = arr.slice();
+    	// sort the new array descendantly
+      return newArr.sort(function(a,b){
+        return a === b ? 0 : a > b ? 1: -1;
+      });
+    
+    console.log(nonMutatingSort(globalArray)); // [3,3,5,6,9]
+    ```
+    
+- **Split a String into an Array Using the split Method**
+    
+    The split method will splits a string into an array of strings.
+    
+    ```jsx
+    function splitify(str) {
+    		// /\W/ Matches any non-word character.
+    		// This includes spaces and punctuation, but not underscores
+        let arr = str.split(/\W/);
+        return arr;
+    }
+    
+    console.log(splitify("Hello World,I-am code")); 
+    // [ 'Hello', 'World', 'I', 'am', 'code' ]
+    ```
+    
+- **Combine an Array into a String Using the join Method**
+    
+    The `join` method is used to join the elements of an array together to create a string.
+    
+    ```jsx
+    function sentensify(str) {
+      // split the array into strings
+      let newStr = str.split(/\W/);
+    	// join the array without strings
+      const myStr = newStr.join(" ");
+    	//  return the final join
+      return myStr;
+    }
+    
+    console.log(sentensify("May-the-force-be-with-you")); // May the force be with you
+    ```
+    
+- **Apply Functional Programming to Convert Strings to URL Slugs**
+    
+    ```jsx
+    
+    function urlSlug(title) {
+      return title
+        .toLowerCase() // turn all lower case
+        .trim() // remove any more than one spacing
+        .split(/\s+/) // split into string
+        .join("-"); // join all into hyphen
+    
+    }
+    
+    console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"));
+    
+    // a-mind-needs-books-like-a-sword-needs-a-whetstone
+    ```
+   
  
 
 
