@@ -3940,7 +3940,41 @@ console.log(getRating(watchList));
     ```
    
  
-
+- **Use the every Method to Check that Every Element in an Array Meets a Criteria** -
+  
+- **Use the every Method to Check that Every Element in an Array Meets a Criteria**
+    
+    ```jsx
+    function checkPositive(arr) {
+      return arr.every(val => val > 0);
+    }
+    
+    console.log(checkPositive([1, 2, 3, -4, 5])); // false
+    ```
+    
+- **Use the some Method to Check that Any Elements in an Array Meet a Criteria**
+    
+    ```jsx
+    function checkPositive(arr) {
+    return arr.some(val => val > 0);
+    }
+    
+    console.log(checkPositive([1, 2, 3, -4, 5])); // true
+    ```
+    
+- **Introduction to Currying and Partial Application**
+    
+    ```jsx
+    function add(x) {
+      return function(y) {
+        return function(z) {
+    	    return x + y + z;
+            };
+      };
+    }
+    console.log(add(10)(20)(30)); // 60 
+    ```
+    
 
 
 
