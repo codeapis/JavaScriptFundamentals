@@ -3974,7 +3974,26 @@ console.log(getRating(watchList));
     }
     console.log(add(10)(20)(30)); // 60 
     ```
-    
 
+Intermediate Algorithm Scripting
+
+- **Sum All Numbers in a Range**
+    
+    Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
+    
+    ```jsx
+    function sumAll(arr) {
+      let max = Math.max(arr[0], arr[1]);
+      let min = Math.min(arr[0], arr[1]);
+      let sumBetween = 0;
+      for (let i = min; i <= max; i++) {
+    	  sumBetween += i;
+        }
+        return sumBetween;
+      }
+    
+    console.log(sumAll([1, 4])); // 10
+    ```
+   
 
 
