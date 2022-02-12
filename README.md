@@ -3994,6 +3994,62 @@ Intermediate Algorithm Scripting
     
     console.log(sumAll([1, 4])); // 10
     ```
-   
+  
+  
+- **Diff Two Arrays**
+    
+    Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both.
+    
+    ```jsx
+    
+    function diffArray(arr1, arr2) {
+      // creating new array
+    let newArr = [];
+    
+    // loop through array to capture unique item
+    function checkInFirst(first, second) {
+      for (var i = 0; i < first.length; i++) {
+        if (second.indexOf(first[i]) === -1) {
+    // pushing unique item to first array
+        newArr.push(first[i]);
+        }
+      }
+    }
+    
+    checkInFirst(arr1, arr2);
+    checkInFirst(arr2, arr1);
+    return newArr;
+    }
+    
+    console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])); // 4
+    ```
+    
+- **Seek and Destroy**
+    
+    provided with an initial array (the first argument in the `destroyer`function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+    
+    ```jsx
+    function destroyer(arr) {
+    // create a new array for comparison  
+    let valRemove = Object.values(arguments).slice(1);
+    
+    // iterate the object between two array and compare them
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < valRemove.length; j++) {
+          
+    // if the item equal, delete it
+    if (arr[i] === valRemove[j]) {
+            delete arr[i];
+          }
+        }
+      }
+     
+    // return filtered item that was not null 
+      return arr.filter(item => item !== null);
+    }
+    
+    console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); // [ 1, 1 ]
+    ```
+    
 
 
