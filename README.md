@@ -4052,4 +4052,73 @@ Intermediate Algorithm Scripting
     ```
     
 
+- **Wherefore art thou**
+    
+    Making function that looks thrugh an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument).
+    
+    ```jsx
+    function whatIsInAName(collection, source) {
+      const arr = Object.keys(source);
+    
+      // filter through the collection
+      return collection.filter(function(obj) {
+        // compare every object inside the collection
+        return arr.every(function(key){
+          // return only similar properties
+          return obj.hasOwnProperty(key) && obj[key] === source[key];
+    
+        });
+      });
+      
+    }
+    
+    console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
+    
+    // [{ first: 'Tybalt', last: 'Capulet' } ]
+    ```
+    
+- **Spinal Tap Case**
+    
+    Convert a string into spinal case. 
+    
+    Spinal case is all-lowercase-words-joined-by-dashes.
+    
+    ```jsx
+    function spinalCase(str) {
+      // replace low-uppercase to low-space-uppercase
+      str = str.replace(/([a-z])([A-Z])/g, "$1 $2")
+      
+      // split the whitespace and underscore and join them with dashes
+      return str
+      .toLowerCase()
+      .split(/(?:_| )+/)
+      .join("-");
+    }
+    
+    console.log(spinalCase('This Is Spinal Tap')); // this-is-spinal-tap
+    ```
+    
+- **Pig Latin**
+    
+    Pig Latin is a way of altering English Words.
+    
+    ```jsx
+    // start at beginning and get longest match of everything not a vowel (consonants)
+    // if regex pattern found, it saves the match; else, it returns null
+    // if regex pattern found (starts with consonants), it deletes match, adds the match to the end, and adds “ay” to the end
+    // if regex pattern not found (starts with vowels), it just adds “way” to the ending
+    
+    function translatePigLatin(str) {
+      let consonantRegex = /^[^aiueo]+/;
+      let myConsonants = str.match(consonantRegex);
+      return myConsonants !== null ? str
+        .replace(consonantRegex,"")
+        .concat(myConsonants)
+        .concat("ay")
+        : str.concat("way");
+    }
+    
+    console.log(translatePigLatin("consonant")); // onsonantway
+    ```
+    
 
