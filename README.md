@@ -4121,4 +4121,53 @@ Intermediate Algorithm Scripting
     console.log(translatePigLatin("consonant")); // onsonantway
     ```
     
+Day 42 of #100DaysOfCode
 
+- **Search and Replace**
+    
+    Search and replace using given arguments
+    
+    ```jsx
+    function myReplace(str, before, after) {
+      // find index of before on the string
+      var index = str.indexOf(before);
+      // check if the first letter is uppercase or otherwise
+      if(str[index] === str[index].toUpperCase()) {
+        // change the after word to capital
+        after = after.charAt(0).toUpperCase() + after.slice(1);
+      } else {
+        // change the after word into uncapital
+        after = after.charAt(0).toLowerCase() + after.slice(1);
+      }
+      // replace the str with new one
+      str = str.replace(before, after);
+      
+      return str;
+    }
+    
+    console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")); 
+    // "A quick brown fox leaped over the lazy dog"
+    ```
+    
+    
+- **DNA Pairing**
+    
+    Finding the missing element. between two character
+    
+    ```jsx
+    function pairElement(str) {
+      var pairs = {
+        A: "T",
+        T: "A",
+        C: "G",
+        G: "C",
+      };
+      // split into array of character 
+      var arr = str.split("");
+      // map character to array of character & matching pair
+      return arr.map(x => [x, pairs[x]]);
+    }
+    
+    console.log(pairElement("GCG")); // [ [ 'G', 'C' ], [ 'C', 'G' ], [ 'G', 'C' ] ]
+    ```
+ 
