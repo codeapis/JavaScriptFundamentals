@@ -4224,5 +4224,40 @@ Day 42 of #100DaysOfCode
     console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])); // [ 1, 3, 2, 5, 4 ]
     ```
     
-
+- **Convert HTML Entities**
+    
+    converting the characters `&`, `<` , `>`, `"` (double quote) and `'` (apostrophe), in a string to their corresponding HTML entities.
+    
+    ```jsx
+    function convertHTML(str) {
+      // split all charcter into stand alone item
+      let temp = str.split("");
+      // use switch to replace HTML Entities
+      for (let i = 0; i < temp.length; i++){
+        switch(temp[i]) {
+          case "<":
+            temp[i] = "&lt;";
+            break;
+          case "&":
+            temp[i] = "&amp;";
+            break;
+          case ">":
+            temp[i] = "&gt;";
+            break;
+          case '"':
+            temp[i] = "&quot;";
+            break;
+          case "'":
+            temp[i] = "&apos;";
+            break;
+    
+        }
+      }
+      temp = temp.join("");
+      return temp;
+    }
+    
+    console.log(convertHTML("Dolce & Gabbana")); // Dolce &amp; Gabbana
+    ```
+    
  
