@@ -4260,4 +4260,76 @@ Day 42 of #100DaysOfCode
     console.log(convertHTML("Dolce & Gabbana")); // Dolce &amp; Gabbana
     ```
     
- 
+ - **Sum All Odd Fibonacci Numbers**
+    
+    Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+    
+    ```jsx
+    /* 
+    Create a variable to keep record of the current and previous numbers along with the result that will be returned.
+    Use a while loop to make sure we do not go over the number given as parameter.
+    We use the modulo operand to check if the current number is odd or even. If it is odd, add it to the result.
+    Complete the Fibonacci circle by rotating getting the next number and swapping values after.
+    Return the result.
+    */
+    
+    function sumFibs(num) {
+      // keep current and previous num with return value
+      let prevNum = 0;
+      let currNum = 1;
+      let result = 0;
+      // use while loop to avoid given num as parameter
+      while (currNum <= num) {
+      // use modulo operand to check the num odd or even
+        if (currNum % 2 !== 0) {
+          result += currNum;
+        }
+      // Complete fibonacci circle to next num
+        currNum += prevNum;
+        prevNum = currNum -prevNum;
+      }
+    
+      return result;
+    }
+    
+    console.log(sumFibs(4));// 5
+    ```
+    
+- **Sum All Primes**
+    
+    A prime number is a whole number greater that 1, with two divisors: 1 & 2 itself.
+    
+    ```jsx
+    /*
+    We loop over all values in our range, adding them to the sum if they are prime.
+    Our primality checking function returns false if the target number is divisible
+     by any number in between 2 and the square root of the target number. 
+    We only need to check up to the square root because the square root 
+    of a number is the largest possible unique divisor. 
+    */
+    
+    function sumPrimes(num) {
+      
+      // help function to check primality
+    function isPrime(num) {
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i == 0)
+        return false;
+      }
+      return true;
+    }
+    
+    // check all the number for primarlity
+    let sum = 0;
+    for (let i = 2; i <= num; i++) {
+      if (isPrime(i))
+      sum += i;
+    }
+    return sum;
+    }
+    
+    console.log(sumPrimes(10));
+    
+    // 17
+    ```
+    
