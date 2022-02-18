@@ -4332,4 +4332,66 @@ Day 42 of #100DaysOfCode
     
     // 17
     ```
+
+
+- **Smallest Common Multiple**
     
+    Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+    
+    ```jsx
+    
+    function smallestCommons(arr) {
+      // setup initial range and divisor
+      const [min, max] = arr.sort((a,b) => a-b);
+      const numDivisors = max - min +1;
+      // lagerst possible value for SCM
+      let upperBond = 1;
+      for (let i = min; i <=max; i++) {
+        upperBond *= i;
+      }
+      // testing all multiple from 'max'
+      for (let multiple = max; multiple <= upperBond; multiple += max) {
+        // check if every value divides 'multiple'
+      let divisorCount = 0;
+      for (let i = min; i <= max; i++) {
+        // count divisors
+      if (multiple % i === 0) {
+        divisorCount += 1;
+      }
+      }
+      // check the count with numDivisors
+      if( divisorCount === numDivisors) {
+        return multiple;
+        }
+      }
+    }
+    
+    console.log(smallestCommons([1,5])); // 60
+    ```
+
+- **Drop it**
+    
+    Given the array `arr`, iterate through and remove each element starting from the first element (the 0 index) until the function `func` returns `true`  when the iterated element is passed through it.
+    
+   Then return the rest of the array once the condition is satisfied, otherwise, `arr`should be returned as an empty array.
+
+```jsx
+/*
+Use a while loop with Array.prototype.shift() to continue checking 
+and dropping the first element of the array until the function returns true. 
+It also makes sure the array is not empty first to avoid infinite loops.
+Return the filtered array.
+*/
+
+function dropElements(arr, func) {
+  // use while loop Array.protptype.shift() to continuosly check and drop
+  // ensure the array not empty by starting with index 0 must > 0
+  while (arr.length > 0 && !func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+
+console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
+// [ 1, 2, 3 ]
+```
