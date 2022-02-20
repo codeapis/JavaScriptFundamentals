@@ -4453,3 +4453,26 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
     // Aren't bonfires fun!?
     ```
    
+- **Arguments Optional**
+    
+    Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+    
+    ```jsx
+    // Every time we deal with argument, you have to check if is defined if that number
+    // When working on the case that it needs to return a function, using closure can help you write the new function in terms of addTogether().
+    
+    function addTogether() {
+      const [first, second] = arguments;
+      if (typeof(first) !== "number")
+    	  return undefined;
+      if (second === undefined)
+    	  return (second) => addTogether(first, second);
+      if (typeof(second) !== "number")
+    	  return undefined;
+      return first + second;
+    
+    }
+    
+    console.log(addTogether(2,3)); // 5
+    ```
+    
