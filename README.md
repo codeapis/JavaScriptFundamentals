@@ -4475,4 +4475,82 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
     
     console.log(addTogether(2,3)); // 5
     ```
+  
+  - **Make a Person**
+    
+    Fill in the object constructor with the following methods below:
+    
+    ```jsx
+    // 1. use this.varName = function() to create keys instead regular function
+    // 2. work with six local key variables
+    // 3. ensure variable name spell accordingly
+    
+    const Person = function(firstAndLast) {
+      let fullName = firstAndLast;
+    
+      this.getFirstName = function() {
+        return fullName.split(" ")[0];
+      };
+    
+      this.getLastName = function() {
+        return fullName.split(" ")[1];
+      };
+    
+      this.getFullName = function() {
+        return fullName;
+      };
+    
+      this.setFirstName = function(name) {
+        fullName = name + " " + fullName.split(" ")[1];
+      };
+    
+      this.setLastName = function(name) {
+        fullName = fullName.split(" ")[0] + " " + name;
+      };
+    
+      this.setFullName = function(name) {
+        fullName = name;
+      };
+    };
+    
+    const bob = new Person('Bob Ross');
+    console.log(bob.getFullName());// Bob Ross
+    ```
+    
+- **Map the Debris**
+    
+    Return a new array that transforms the elements’s average altitude into their orbital periods (in seconds).
+    
+    - **GM** and **earthRadius** are both given to us.
+    - A `for..in` loop is used to iterate through each value in given array **arr**.
+    - **orbital** holds the value of orbital period for each iteration calculated using the formula.
+    - The key **avgAlt** is deleted, and **orbitalPer** found is assigned in **arr**.
+    
+    ```jsx
+    
+    function orbitalPeriod(arr) {
+      // given value
+      const GM = 398600.4418;
+      const earthRadius = 6367.4447;
+      const newArr = []
+    
+      // looping through each key in arr object
+      for (let el in arr) {
+        // round the orbital value
+        const orbital = Math.round(
+          2* Math.PI * Math.sqrt(Math.pow(arr[el].avgAlt + earthRadius, 3) / GM )
+        );
+        // add new object with orbitalPeriod property
+        newArr.push({name: arr[el].name, orbitalPeriod: orbital});
+    
+      }
+      //return the new array
+      return newArr;
+    }
+    
+    console.log(orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]));
+    // [ { name: 'sputnik', orbitalPeriod: 86400 } ]
+    ```
+    
+    
     
