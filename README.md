@@ -4552,5 +4552,16 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
     // [ { name: 'sputnik', orbitalPeriod: 86400 } ]
     ```
     
-    
+1. Project JavaScript & Data Structure
+	Palindrome Checker
+	Return true if the given string is a palindrome. Otherwise, return false.
+	remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check 	for palindromes.
+	
+2. Roman Numeral Converter
+3. Caesar Cipher
+4. Telephon Number Validator
+5. Cash Register
+
+
+
     
