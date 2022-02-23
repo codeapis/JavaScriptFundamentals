@@ -4557,6 +4557,37 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
 	Return true if the given string is a palindrome. Otherwise, return false.
 	remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check 	for palindromes.
 	
+    1. Remove **non-alphanumeric characters**
+    2. Turn everything into the same case (lower case)
+    3. Pass the various string format & symbol
+    
+    ```jsx
+    function palindrome(str) {
+    
+    // remove all non-alphanumeric & turn into same case
+    const regex = /[^A-Za-z0-9]/g;
+    const newStr = str
+                    .toLowerCase()
+                    .replace(regex, "")
+                    
+    
+    // convert string into array
+    const values = newStr.split("");
+    // reverse the array
+    const revValues = values.reverse();
+    
+    // convert array into string
+    const revNewVal = revValues.join("");
+    if (newStr == revNewVal) {
+       return true;
+    } else {
+      return false;
+    }
+    
+    }
+    console.log(palindrome("eye")); // true
+    ```
+	
 2. Roman Numeral Converter
 3. Caesar Cipher
 4. Telephon Number Validator
