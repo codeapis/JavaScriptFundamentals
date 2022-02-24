@@ -4589,9 +4589,38 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
     ```
 	
 2. Roman Numeral Converter
-3. Caesar Cipher
-4. Telephon Number Validator
-5. Cash Register
+	Case:
+	Convert the given number into a roman numeral.
+	
+	Solution:
+
+	```jsx
+
+	function convertToRoman(num) {
+
+  	var decValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  	var roman = [
+    	"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
+
+	    var romanized = "";
+
+	    // loop through
+    	for (var i = 0; i < decValue.length; i++){
+     	 while (decValue[i] <= num) {
+        	romanized += roman[i];
+        	num -= decValue[i];
+      		}
+    	}
+    	return romanized;
+	}
+
+	console.log(convertToRoman(36)); // XXXVI
+	```
+
+
+4. Caesar Cipher
+5. Telephon Number Validator
+6. Cash Register
 
 
 
