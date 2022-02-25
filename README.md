@@ -4618,9 +4618,13 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
 	```
 
 
-4. Caesar Cipher
-5. Telephon Number Validator
-6. Cash Register
+3. Caesar Cipher
+	Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+	Ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
+
+
+4. Telephon Number Validator
+5. Cash Register
 
 
 
