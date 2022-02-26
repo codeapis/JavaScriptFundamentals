@@ -4619,8 +4619,35 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
 
 
 3. Caesar Cipher
-	Write a function which takes a ROT13 encoded string as input and returns a decoded string.
-	Ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
+    
+    Write a function which takes a [ROT13](https://en.wikipedia.org/wiki/ROT13) encoded string as input and returns a decoded string.
+    
+    *ciphers* is a *Caesar cipher*, also known as a *shift cipher.* In a shift cipher the meanings of the letters are shifted by some set amount.
+    
+	    ```jsx
+	    // caesar cipher
+	    function rot13(str) {
+
+	     var alphaOne =['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'," ", "-", "_", ".", "&","?", "!", "@", "#", "/"];
+
+	    var alphaTwo = ['N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A','B','C','D','E','F','G','H','I','J','K','L','M', " ", "-", "_", ".", "&","?", "!", "@", "#", "/"];
+
+	    let answer = [];
+	    for (let i = 0; i < str.length; i++) {
+	      for (let j = 0; j < alphaOne.length; j++) {
+		if (str[i] === alphaOne[j]) {
+		  answer.push(alphaTwo[j]);
+		}
+	      }
+	    }
+	    return answer.join("");
+
+	    }
+
+	    console.log(rot13("SERR PBQR PNZC")); // FREE CODE CAMP
+	    ```
+    
+    
 
 
 4. Telephon Number Validator
