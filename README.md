@@ -4647,10 +4647,43 @@ console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
 	    console.log(rot13("SERR PBQR PNZC")); // FREE CODE CAMP
 	    ```
     
+
+4. Telephon Number Validator
+	
+    
+    Return true if the passed string looks like a valid US phone number.
+    
+    ```jsx
+    function telephoneCheck(str) {
+    
+      // return false if there is no open pharantesis and there is close parethesis
+      if (str.indexOf("(") === -1 &&  str.indexOf(")") > -1) return false;
+      // if the distance between pharentesis >= 5, then false
+      if (str.indexOf(")") - str.indexOf("(") >= 5 ) return false;
+      if (str[0] === "-")  return false;
+    
+      let ind = str.length;
+      if(str[ind-2] === "-") return false;
+      
+    
+      let newPhone = str.replace(/-| /g, "");
+      if (newPhone.indexOf("(") < newPhone.indexOf(")")) {
+        newPhone = newPhone.replace(/\(|\)/g, "");
+      }
+      
+      if (newPhone.length === 10) {
+        return true;
+      } else if (newPhone.length === 11 && newPhone[0] === "1"){
+        return true;
+      }
+      return false;
+    }
+    
+    console.log(telephoneCheck("55 55-55-555-5")); // false
+    ```
     
 
 
-4. Telephon Number Validator
 5. Cash Register
 
 
